@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Kilony_Browser_Frame"
         xmlns:CefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
@@ -11,12 +10,16 @@
         <ToolBar DockPanel.Dock="Top">
             <Button x:Name="Return" Click="Return_Click">Return
             </Button>
-            <Button x:Name="HomePage">Home
-            </Button>
             <Button x:Name="Next" Click="Next_Click">Next
             </Button>
+            <Button x:Name="Refresh" Click="Refresh_Click">
+                Refresh
+            </Button>
+            <Button x:Name="HomePage" Click="HomePage_Click" >Home
+            </Button>
+            
             <TextBox x:Name="Link" MinWidth="500" BorderBrush="Cyan"/>
-            <Button x:Name="Linker" Content="GoToLink" Click="Linker_Click" >
+            <Button x:Name="Linker" Content="GoToLink" Click="Linker_Click" IsDefault="True">
                 
             </Button>
             <Button x:Name="Settings" Margin="15,0,0,0">
@@ -32,6 +35,11 @@
         <TabControl x:Name="Tabs">
             <TabItem x:Name="Tab0" Header="Главная страница">
                 <CefSharp:ChromiumWebBrowser x:Name="Main" Address="www.yandex.com"/>
+            </TabItem>
+            <TabItem x:Name="Adder" GotFocus="Adder_GotFocus">
+                <TabItem.Header>
+                    <TextBlock Text="+"/>
+                </TabItem.Header>
             </TabItem>
         </TabControl>
     </DockPanel>
