@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:CefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="MainWindow" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Button x:Name="Return" Click="Return_Click">Return
@@ -25,6 +25,7 @@
             <Button x:Name="Settings" Margin="15,0,0,0">
                 Settings
             </Button>
+            
         </ToolBar>
             <Expander Header="Favorites" DockPanel.Dock="Top">
                 <Menu>
@@ -34,12 +35,21 @@
             </Expander>
         <TabControl x:Name="Tabs">
             <TabItem x:Name="Tab0" Header="Главная страница">
-                <CefSharp:ChromiumWebBrowser x:Name="Main" Address="www.yandex.com"/>
-            </TabItem>
-            <TabItem x:Name="Adder" GotFocus="Adder_GotFocus">
-                <TabItem.Header>
-                    <TextBlock Text="+"/>
-                </TabItem.Header>
+                <DockPanel>
+                    <Button>
+                        <Image Source="gmail.jpg"/>
+                    </Button>
+                    <Button Content="Button"/>
+                    <Button Content="Button"/>
+                    <Button Content="Button"/>
+                    <Button Content="Button"/>
+                    <Button Content="Button"/>
+                    <Button Content="Button"/>
+                    <Button Content="Button"/>
+                    <Button Content="Button"/>
+                    <Button Content="Button"/>
+                    <Button Content="Button"/>
+                </DockPanel>
             </TabItem>
         </TabControl>
     </DockPanel>

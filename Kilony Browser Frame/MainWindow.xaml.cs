@@ -50,22 +50,5 @@ namespace Kilony_Browser_Frame
         {
             Main.GetBrowser().Reload();
         }
-        int _counter = 0;
-        private void Adder_GotFocus(object sender, RoutedEventArgs e)
-        {
-            List<long> list = Main.GetBrowser().GetFrameIdentifiers();
-            ChromiumWebBrowser web = new ChromiumWebBrowser()
-            {
-                WebBrowser = new ChromiumWebBrowser(),
-                Address = Main.GetBrowser().GetFrame(list[list.Count - 1]).Url                
-            };
-            TabItem item = new TabItem()
-            {
-                Content = web,
-                Name = "Tab" + _counter++
-            };
-            Tabs.Items.Add(item);
-            Tabs.Focus();           
-        }
     }
 }
