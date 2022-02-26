@@ -74,8 +74,6 @@
             <Button x:Name="Refresh" Click="Refresh_Click">
                 Refresh
             </Button>
-            <Button x:Name="HomePage" Click="HomePage_Click" >Home
-            </Button>
 
             <TextBox x:Name="Link" MinWidth="500" BorderBrush="Cyan" Text="yandex.ru"/>
             <Button x:Name="Linker"  Click="Linker_Click" Height="24" Width="34">
