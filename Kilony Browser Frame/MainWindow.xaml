@@ -6,8 +6,33 @@
         xmlns:local="clr-namespace:Kilony_Browser_Frame"
         xmlns:CefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <CefSharp:ChromiumWebBrowser Address="www.google.com"/>
-    </Grid>
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button x:Name="Return" Click="Return_Click">Return
+            </Button>
+            <Button x:Name="HomePage">Home
+            </Button>
+            <Button x:Name="Next" Click="Next_Click">Next
+            </Button>
+            <TextBox x:Name="Link" MinWidth="500" BorderBrush="Cyan"/>
+            <Button x:Name="Linker" Content="GoToLink" Click="Linker_Click" >
+                
+            </Button>
+            <Button x:Name="Settings" Margin="15,0,0,0">
+                Settings
+            </Button>
+        </ToolBar>
+            <Expander Header="Favorites" DockPanel.Dock="Top">
+                <Menu>
+                <MenuItem Header="Yandex"/>
+                <MenuItem Header="Google"/>
+            </Menu>
+            </Expander>
+        <TabControl x:Name="Tabs">
+            <TabItem x:Name="Tab0" Header="Главная страница">
+                <CefSharp:ChromiumWebBrowser x:Name="Main" Address="www.yandex.com"/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>

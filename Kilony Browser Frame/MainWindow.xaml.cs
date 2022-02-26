@@ -24,5 +24,20 @@ namespace Kilony_Browser_Frame
         {
             InitializeComponent();
         }
+
+        private void Linker_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Address = Link.Text;
+        }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            Main.GetBrowser().GoBack();
+        }
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            Main.GetBrowser().GoForward();
+        }
     }
 }
