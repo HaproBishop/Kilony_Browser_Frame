@@ -39,6 +39,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>LogoIco.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CefSharp, Version=98.1.210.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
       <HintPath>..\packages\CefSharp.Common.98.1.210\lib\net452\CefSharp.dll</HintPath>
@@ -119,6 +122,19 @@
     <Resource Include="Pictures\vk-process-mining.png" />
     <Resource Include="Pictures\YaSearch.jpg" />
     <Resource Include="Pictures\Youtube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ImgTool\AboutProgram.ico" />
+    <Resource Include="ImgTool\CancelUndo.ico" />
+    <Resource Include="ImgTool\Exit.ico" />
+    <Resource Include="ImgTool\FindIt.png" />
+    <Resource Include="ImgTool\LogoIco.ico" />
+    <Resource Include="ImgTool\SettingsOnWhite.png" />
+    <Resource Include="ImgTool\Support.ico" />
+    <Resource Include="ImgTool\Undo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="LogoIco.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
