@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CefSharp.Wpf;
 
 namespace Kilony_Browser_Frame
 {
@@ -37,7 +38,34 @@ namespace Kilony_Browser_Frame
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            Main.GetBrowser().GoForward();
+            Main.GetBrowser().GoForward();            
+        }
+
+        private void HomePage_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Address = "www.yandex.ru";
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            Main.GetBrowser().Reload();
+        }
+        int _counter = 0;
+        private void Adder_GotFocus(object sender, RoutedEventArgs e)
+        {
+            List<long> list = Main.GetBrowser().GetFrameIdentifiers();
+            ChromiumWebBrowser web = new ChromiumWebBrowser()
+            {
+                WebBrowser = new ChromiumWebBrowser(),
+                Address = Main.GetBrowser().GetFrame(list[list.Count - 1]).Url                
+            };
+            TabItem item = new TabItem()
+            {
+                Content = web,
+                Name = "Tab" + _counter++
+            };
+            Tabs.Items.Add(item);
+            Tabs.Focus();           
         }
     }
 }
