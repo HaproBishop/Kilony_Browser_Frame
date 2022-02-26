@@ -41,14 +41,78 @@ namespace Kilony_Browser_Frame
             Main.GetBrowser().GoForward();            
         }
 
-        private void HomePage_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Address = "www.yandex.ru";
-        }
-
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
             Main.GetBrowser().Reload();
+        }
+
+        private void Link_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Linker.IsDefault = true;
+        }
+
+        private void Link_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Linker.IsDefault = false;
+        }
+
+        private void Gmail_Click(object sender, RoutedEventArgs e)
+        {
+            Link.Text = "https://gmail.com";
+            HideMenuAndSearch(sender, e);
+        }
+
+        private void Google_Click(object sender, RoutedEventArgs e)
+        {
+            Link.Text = "https://google.com";
+            HideMenuAndSearch(sender, e);
+        }
+        private void HideMenuAndSearch(object sender, RoutedEventArgs e)
+        {
+            StartMenu.IsExpanded = false;
+            Linker_Click(sender, e);
+        }
+
+        private void Youtube_Click(object sender, RoutedEventArgs e)
+        {
+            Link.Text = "https://youtube.com";
+            HideMenuAndSearch(sender, e);
+        }
+
+        private void MailRu_Click(object sender, RoutedEventArgs e)
+        {
+            Link.Text = "https://mail.ru";
+            HideMenuAndSearch(sender, e);
+        }
+
+        private void YandexMail_Click(object sender, RoutedEventArgs e)
+        {
+            Link.Text = "https://mail.yandex.ru";
+            HideMenuAndSearch(sender, e);
+        }
+
+        private void Yandex_Click(object sender, RoutedEventArgs e)
+        {
+            Link.Text = "https://yandex.ru";
+            HideMenuAndSearch(sender, e);
+        }
+
+        private void Rutube_Click(object sender, RoutedEventArgs e)
+        {
+            Link.Text = "https://rutube.ru";
+            HideMenuAndSearch(sender, e);
+        }
+
+        private void VK_Click(object sender, RoutedEventArgs e)
+        {
+            Link.Text = "https://vk.com";
+            HideMenuAndSearch(sender, e);
+        }
+
+        private void Windows11_Click(object sender, RoutedEventArgs e)
+        {
+            Link.Text = "https://www.microsoft.com/ru-ru/software-download/windows11";
+            HideMenuAndSearch(sender, e);
         }
     }
 }

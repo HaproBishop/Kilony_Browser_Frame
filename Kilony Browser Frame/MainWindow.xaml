@@ -75,7 +75,7 @@
                 Refresh
             </Button>
 
-            <TextBox x:Name="Link" MinWidth="500" BorderBrush="Cyan" Text="yandex.ru"/>
+            <TextBox x:Name="Link" MinWidth="500" BorderBrush="Cyan" Text="https://yandex.ru" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
             <Button x:Name="Linker"  Click="Linker_Click" Height="24" Width="34">
                 <Image Source="ImgTool\FindIt.png" Width="24"/>
             </Button>
@@ -84,28 +84,28 @@
             </Button>
 
         </ToolBar>
-        <Expander Header="Favorites" DockPanel.Dock="Top" IsExpanded="True">
+        <Expander x:Name="StartMenu" Header="Start Menu" DockPanel.Dock="Top" IsExpanded="True">
             <DockPanel HorizontalAlignment="Center">
                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-                    <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                    <Button x:Name="Gmail" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Gmail_Click" >
                         <DockPanel>
                             <Image Source="Pictures\gmail.jpg" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Gmail" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
-                    <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                    <Button x:Name="Google" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Google_Click">
                         <DockPanel>
                             <Image Source="Pictures\GooSearch.jpg" DockPanel.Dock="Top" Height="70"/>
                             <TextBlock Text="Google" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
-                    <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                    <Button x:Name="Youtube" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Youtube_Click">
                         <DockPanel>
                             <Image Source="Pictures\Youtube.png" DockPanel.Dock="Top" Height="70"/>
                             <TextBlock Text="Youtube" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
-                    <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                    <Button x:Name="MailRu" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="MailRu_Click">
                         <DockPanel>
                             <Image Source="Pictures\mail ru icon.jpg" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Mail.Ru" HorizontalAlignment="Center"/>
@@ -113,32 +113,32 @@
                     </Button>
                 </DockPanel>
                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-                    <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                    <Button x:Name="YandexMail" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="YandexMail_Click">
                         <DockPanel>
                             <Image Source="Pictures\mail-yandex-ru-logo-2018-ogp-vertical.png" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Yandex Mail" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
-                    <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                    <Button x:Name="Yandex" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Yandex_Click">
                         <DockPanel>
                             <Image Source="Pictures\YaSearch.jpg" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Yandex" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
-                    <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                    <Button x:Name="Rutube" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Rutube_Click">
                         <DockPanel>
                             <Image Source="Pictures\Rutube.jpg" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Rutube" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
-                    <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                    <Button x:Name="VK" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="VK_Click">
                         <DockPanel>
                             <Image Source="Pictures\vk-process-mining.png" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="VK" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
                 </DockPanel>
-                <Button Width="340" Margin="50,30,50,0" Height="100" Background="White" BorderBrush="Black">
+                <Button x:Name="Windows11" Width="340" Margin="50,30,50,0" Height="100" Background="White" BorderBrush="Black" Click="Windows11_Click">
                     <DockPanel>
                         <Image Source="Pictures\MicrosoftWin11.png" DockPanel.Dock="Top" Height="80" Width="338"/>
                         <TextBlock Text="Windows 11" HorizontalAlignment="Center"/>
@@ -146,6 +146,6 @@
                 </Button>
             </DockPanel>
         </Expander>
-        <CefSharp:ChromiumWebBrowser x:Name="Main" Address="yandex.ru"/>
+        <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru"/>
     </DockPanel>
 </Window>
