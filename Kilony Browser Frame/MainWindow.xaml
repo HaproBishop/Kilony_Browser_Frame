@@ -36,12 +36,32 @@
         <TabControl x:Name="Tabs">
             <TabItem x:Name="Tab0" Header="Главная страница">
                 <DockPanel>
-                    <Button>
-                        <Image Source="gmail.jpg"/>
-                    </Button>
-                    <Button Content="Button"/>
-                    <Button Content="Button"/>
-                    <Button Content="Button"/>
+                    <DockPanel DockPanel.Dock="Top">
+                        <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                            <DockPanel>
+                                <Image Source="Pictures\gmail.jpg" DockPanel.Dock="Top" Height="72"/>
+                                <TextBlock Text="Gmail" HorizontalAlignment="Center"/>
+                            </DockPanel>
+                        </Button>
+                        <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                            <DockPanel>
+                                <Image Source="Pictures\GooSearch.jpg" DockPanel.Dock="Top" Height="70"/>
+                                <TextBlock Text="Google" HorizontalAlignment="Center"/>
+                            </DockPanel>
+                        </Button>
+                        <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                            <DockPanel>
+                                <Image Source="Pictures\Youtube.png" DockPanel.Dock="Top" Height="70"/>
+                                <TextBlock Text="Youtube" HorizontalAlignment="Center"/>
+                            </DockPanel>
+                        </Button>
+                        <Button Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black">
+                            <DockPanel>
+                                <Image Source="Pictures\mail ru icon.jpg" DockPanel.Dock="Top" Height="72"/>
+                                <TextBlock Text="Mail.Ru" HorizontalAlignment="Center"/>
+                            </DockPanel>
+                        </Button>
+                    </DockPanel>
                     <Button Content="Button"/>
                     <Button Content="Button"/>
                     <Button Content="Button"/>
@@ -50,6 +70,9 @@
                     <Button Content="Button"/>
                     <Button Content="Button"/>
                 </DockPanel>
+            </TabItem>
+            <TabItem Header="36Channel">
+                <CefSharp:ChromiumWebBrowser x:Name="Main" Address="yandex.ru"/>
             </TabItem>
         </TabControl>
     </DockPanel>
