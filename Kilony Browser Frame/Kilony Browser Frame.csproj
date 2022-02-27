@@ -137,6 +137,9 @@
   <ItemGroup>
     <Resource Include="LogoIco.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\RefreshOrBrowserIco.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
