@@ -65,24 +65,22 @@
     </Window.Resources>
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
-            <Button Width="30" x:Name="Return" Click="Return_Click">
+            <Button Width="30" Margin="0,0,10,0" x:Name="Return" Click="Return_Click">
                 <Image Source="ImgTool\Undo.ico"/>
             </Button>
-            <Button Width="30" x:Name="Next" Click="Next_Click">
+            <Button Width="30" Margin="0,0,10,0" x:Name="Next" Click="Next_Click">
                 <Image Source="ImgTool\CancelUndo.ico"/>
             </Button>
-            <Button x:Name="Refresh" Click="Refresh_Click">
-                Refresh
+            <Button Width="30" x:Name="Refresh" Click="Refresh_Click">
+                <Image Source="Pictures\RefreshOrBrowserIco.ico"/>
             </Button>
-
             <TextBox x:Name="Link" MinWidth="500" BorderBrush="Cyan" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
             <Button x:Name="Linker"  Click="Linker_Click" Height="24" Width="34">
                 <Image Source="ImgTool\FindIt.png" Width="24"/>
             </Button>
-            <Button x:Name="Settings" Margin="15,0,0,0" Background="Black">
+            <Button x:Name="Settings" Margin="15,0,0,0" Background="Black" Visibility="Hidden">
                 <Image Source="ImgTool\SettingsOnWhite.png" Height="20" Width="20"/>
             </Button>
-
         </ToolBar>
         <Expander x:Name="StartMenu" Header="Start Menu" DockPanel.Dock="Top" IsExpanded="True">
             <DockPanel HorizontalAlignment="Center">
