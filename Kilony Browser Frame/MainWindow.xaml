@@ -75,7 +75,7 @@
                 Refresh
             </Button>
 
-            <TextBox x:Name="Link" MinWidth="500" BorderBrush="Cyan" Text="https://yandex.ru" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
+            <TextBox x:Name="Link" MinWidth="500" BorderBrush="Cyan" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
             <Button x:Name="Linker"  Click="Linker_Click" Height="24" Width="34">
                 <Image Source="ImgTool\FindIt.png" Width="24"/>
             </Button>

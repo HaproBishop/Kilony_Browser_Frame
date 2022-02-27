@@ -58,13 +58,13 @@ namespace Kilony_Browser_Frame
 
         private void Gmail_Click(object sender, RoutedEventArgs e)
         {
-            Link.Text = "https://gmail.com";
+            Link.Text = "https://gmail.com/";
             HideMenuAndSearch(sender, e);
         }
 
         private void Google_Click(object sender, RoutedEventArgs e)
         {
-            Link.Text = "https://google.com";
+            Link.Text = "https://google.com/";
             HideMenuAndSearch(sender, e);
         }
         private void HideMenuAndSearch(object sender, RoutedEventArgs e)
@@ -75,43 +75,43 @@ namespace Kilony_Browser_Frame
 
         private void Youtube_Click(object sender, RoutedEventArgs e)
         {
-            Link.Text = "https://youtube.com";
+            Link.Text = "https://youtube.com/";
             HideMenuAndSearch(sender, e);
         }
 
         private void MailRu_Click(object sender, RoutedEventArgs e)
         {
-            Link.Text = "https://mail.ru";
+            Link.Text = "https://mail.ru/";
             HideMenuAndSearch(sender, e);
         }
 
         private void YandexMail_Click(object sender, RoutedEventArgs e)
         {
-            Link.Text = "https://mail.yandex.ru";
+            Link.Text = "https://mail.yandex.ru/";
             HideMenuAndSearch(sender, e);
         }
 
         private void Yandex_Click(object sender, RoutedEventArgs e)
         {
-            Link.Text = "https://yandex.ru";
+            Link.Text = "https://yandex.ru/";
             HideMenuAndSearch(sender, e);
         }
 
         private void Rutube_Click(object sender, RoutedEventArgs e)
         {
-            Link.Text = "https://rutube.ru";
+            Link.Text = "https://rutube.ru/";
             HideMenuAndSearch(sender, e);
         }
 
         private void VK_Click(object sender, RoutedEventArgs e)
         {
-            Link.Text = "https://vk.com";
+            Link.Text = "https://vk.com/";
             HideMenuAndSearch(sender, e);
         }
 
         private void Windows11_Click(object sender, RoutedEventArgs e)
         {
-            Link.Text = "https://www.microsoft.com/ru-ru/software-download/windows11";
+            Link.Text = "https://www.microsoft.com/ru-ru/software-download/windows11/";
             HideMenuAndSearch(sender, e);
         }
     }
