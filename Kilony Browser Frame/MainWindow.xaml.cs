@@ -114,5 +114,10 @@ namespace Kilony_Browser_Frame
             Link.Text = "https://www.microsoft.com/ru-ru/software-download/windows11/";
             HideMenuAndSearch(sender, e);
         }
+
+        private void Main_AddressChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Link.Text = Main.Address;
+        }
     }
 }

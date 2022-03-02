@@ -74,7 +74,7 @@
             <Button Width="30" x:Name="Refresh" Click="Refresh_Click">
                 <Image Source="Pictures\RefreshOrBrowserIco.png"/>
             </Button>
-            <TextBox x:Name="Link" MinWidth="500" BorderBrush="Cyan" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
+            <TextBox x:Name="Link" MinWidth="500" MaxWidth="600" BorderBrush="Cyan" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
             <Button x:Name="Linker"  Click="Linker_Click" Height="24" Width="34">
                 <Image Source="ImgTool\FindIt.png" Width="24"/>
             </Button>
@@ -144,6 +144,6 @@
                 </Button>
             </DockPanel>
         </Expander>
-        <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru"/>
+        <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru" AddressChanged="Main_AddressChanged"/>
     </DockPanel>
 </Window>
