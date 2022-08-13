@@ -144,6 +144,6 @@
                 </Button>
             </DockPanel>
         </Expander>
-        <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru"/>
+        <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru" AddressChanged="Main_AddressChanged"/>
     </DockPanel>
 </Window>
