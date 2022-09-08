@@ -51,6 +51,7 @@ namespace Kilony_Browser_Frame
         private void Link_GotFocus(object sender, RoutedEventArgs e)
         {
             Linker.IsDefault = true;
+            Link.SelectAll();
         }
 
         private void Link_LostFocus(object sender, RoutedEventArgs e)
@@ -125,6 +126,11 @@ namespace Kilony_Browser_Frame
         private void Main_TitleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Tabs.SelectedItem != null) ((TabItem)Tabs.SelectedItem).Header = Main.Title;
+        }
+
+        private void CloseTab_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

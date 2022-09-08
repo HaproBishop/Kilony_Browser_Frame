@@ -88,15 +88,10 @@
             </DockPanel>
         </Expander>
         <TabControl x:Name="Tabs">
-            <TabItem>
-                <TabItem.Header>
-                    <DockPanel>
-                        <TextBlock TextTrimming="CharacterEllipsis" VerticalAlignment="Center" MaxWidth="60">Yandex</TextBlock>
-                        <Button Content="X" Width="20" Background="Transparent" BorderBrush="Black" Margin="10,0,0,0"/>
-                    </DockPanel>
-                </TabItem.Header>
+            <TabItem Header="Main">
                 <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru" AddressChanged="Main_AddressChanged" TitleChanged="Main_TitleChanged"/>
             </TabItem>
+            <TabItem></TabItem>
         </TabControl>
     </DockPanel>
 </Window>
