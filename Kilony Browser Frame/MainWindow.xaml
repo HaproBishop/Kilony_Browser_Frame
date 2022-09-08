@@ -92,15 +92,10 @@
                 <TabItem.Header>
                     <DockPanel>
                         <TextBlock TextTrimming="CharacterEllipsis" VerticalAlignment="Center" MaxWidth="60">Yandex</TextBlock>
-                        <Button Content="x" Background="Transparent" VerticalContentAlignment="Top" BorderBrush="Transparent"/>
+                        <Button Content="X" Width="20" Background="Transparent" BorderBrush="Black" Margin="10,0,0,0"/>
                     </DockPanel>
                 </TabItem.Header>
                 <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru" AddressChanged="Main_AddressChanged" TitleChanged="Main_TitleChanged"/>
-            </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <Button Content="+" Background="Transparent" BorderBrush="Transparent" Click="Button_Click"/>
-                </TabItem.Header>
             </TabItem>
         </TabControl>
     </DockPanel>
