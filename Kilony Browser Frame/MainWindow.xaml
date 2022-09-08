@@ -10,7 +10,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Вкладки">
                 <MenuItem x:Name="CreateNewTab" Header="_Создать новую" Click="CreateNewTab_Click" />
-                <MenuItem Header="_Закрыть текущую"/>
+                <MenuItem x:Name="CloseCurrentTab" Header="_Закрыть текущую" Click="CloseCurrentTab_Click"/>
             </MenuItem>
             <MenuItem Header="_Настройки"/>
             <MenuItem Header="_Справка">

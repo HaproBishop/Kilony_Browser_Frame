@@ -139,7 +139,13 @@ namespace Kilony_Browser_Frame
 
         private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           _currentWeb = (ChromiumWebBrowser)((TabItem)Tabs.SelectedItem).Content;
+            if (Tabs.SelectedItem != null) 
+                _currentWeb = (ChromiumWebBrowser)((TabItem)Tabs.SelectedItem).Content;
+        }
+
+        private void CloseCurrentTab_Click(object sender, RoutedEventArgs e)
+        {
+            if (Main != _currentWeb) Tabs.Items.Remove(Tabs.SelectedItem);
         }
     }
 }
