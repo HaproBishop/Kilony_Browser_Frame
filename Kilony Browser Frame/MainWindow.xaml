@@ -87,6 +87,21 @@
                 </Button>
             </DockPanel>
         </Expander>
-        <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru" AddressChanged="Main_AddressChanged"/>
+        <TabControl x:Name="Tabs">
+            <TabItem>
+                <TabItem.Header>
+                    <DockPanel>
+                        <TextBlock TextTrimming="CharacterEllipsis" VerticalAlignment="Center" MaxWidth="60">Yandex</TextBlock>
+                        <Button Content="x" Background="Transparent" VerticalContentAlignment="Top" BorderBrush="Transparent"/>
+                    </DockPanel>
+                </TabItem.Header>
+                <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru" AddressChanged="Main_AddressChanged" TitleChanged="Main_TitleChanged"/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <Button Content="+" Background="Transparent" BorderBrush="Transparent" Click="Button_Click"/>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
     </DockPanel>
 </Window>
