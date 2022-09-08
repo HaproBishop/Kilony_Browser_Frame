@@ -27,25 +27,25 @@ namespace Kilony_Browser_Frame
             Main.LifeSpanHandler = new Extensions.CustomLifeSpanHandler();
             Main.DownloadHandler = new Extensions.CustomDownloadHandler();            
         }
-
+        ChromiumWebBrowser _currentWeb; 
         private void Linker_Click(object sender, RoutedEventArgs e)
         {
-            Main.Address = Link.Text;
+            _currentWeb.Address = Link.Text;
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            Main.GetBrowser().GoBack();
+            _currentWeb.GetBrowser().GoBack();
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            Main.GetBrowser().GoForward();            
+            _currentWeb.GetBrowser().GoForward();            
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            Main.GetBrowser().Reload();
+            _currentWeb.GetBrowser().Reload();
         }
 
         private void Link_GotFocus(object sender, RoutedEventArgs e)
@@ -120,17 +120,26 @@ namespace Kilony_Browser_Frame
 
         private void Main_AddressChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            Link.Text = Main.Address;
+            if (Tabs.SelectedItem != null) Link.Text = _currentWeb.Address;
         }
 
         private void Main_TitleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Tabs.SelectedItem != null) ((TabItem)Tabs.SelectedItem).Header = Main.Title;
+            if (Tabs.SelectedItem != null) 
+                ((TabItem)Tabs.SelectedItem).Header = _currentWeb.Title;
         }
 
-        private void CloseTab_Click(object sender, RoutedEventArgs e)
+        private void CreateNewTab_Click(object sender, RoutedEventArgs e)
         {
-            
+            Tabs.Items.Add(Extensions.TabCreating.CreateTab("Main", "yandex.ru"));
+            Tabs.SelectedItem = Tabs.Items[Tabs.Items.Count - 1];
+            _currentWeb.AddressChanged += Main_AddressChanged;
+            _currentWeb.TitleChanged += Main_TitleChanged;
+        }
+
+        private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           _currentWeb = (ChromiumWebBrowser)((TabItem)Tabs.SelectedItem).Content;
         }
     }
 }

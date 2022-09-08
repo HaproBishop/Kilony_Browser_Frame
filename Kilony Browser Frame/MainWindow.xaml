@@ -9,7 +9,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Вкладки">
-                <MenuItem Header="_Создать новую"/>
+                <MenuItem x:Name="CreateNewTab" Header="_Создать новую" Click="CreateNewTab_Click" />
                 <MenuItem Header="_Закрыть текущую"/>
             </MenuItem>
             <MenuItem Header="_Настройки"/>
@@ -29,7 +29,7 @@
                 <Image Source="Pictures\RefreshOrBrowserIco.png"/>
             </Button>
             <TextBox x:Name="Link" FontSize="13" MinWidth="500" MaxWidth="600" BorderBrush="Cyan" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
-            <Button x:Name="Linker"  Click="Linker_Click" Height="22" Width="30">
+            <Button x:Name="Linker"  Click="Linker_Click" Height="22" Width="30" BorderBrush="Gray">
                 <Image Source="ImgTool\FindIt.png" Width="24"/>
             </Button>
             <Button x:Name="Settings" Margin="15,0,0,0" Background="Black" Visibility="Hidden">
@@ -98,7 +98,7 @@
                 </Button>
             </DockPanel>
         </Expander>
-        <TabControl x:Name="Tabs">
+        <TabControl x:Name="Tabs" SelectionChanged="Tabs_SelectionChanged">
             <TabItem Header="Main">
                 <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru" AddressChanged="Main_AddressChanged" TitleChanged="Main_TitleChanged"/>
             </TabItem>
