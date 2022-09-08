@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="Kilony Browser Frame" Icon="LogoIco.ico" MinHeight="450" MinWidth="870" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Вкладки">
+                <MenuItem Header="_Создать новую"/>
+                <MenuItem Header="_Закрыть текущую"/>
+            </MenuItem>
+            <MenuItem Header="_Настройки"/>
+            <MenuItem Header="_Справка">
+                <MenuItem Header="Посмотреть _справку"/>
+                <MenuItem Header="_О программе"/>
+            </MenuItem>
+        </Menu>
         <ToolBar DockPanel.Dock="Top">
             <Button Width="30" Margin="0,0,10,0" x:Name="Return" Click="Return_Click">
                 <Image Source="ImgTool\Undo.ico"/>
@@ -91,7 +102,6 @@
             <TabItem Header="Main">
                 <CefSharp:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru" AddressChanged="Main_AddressChanged" TitleChanged="Main_TitleChanged"/>
             </TabItem>
-            <TabItem></TabItem>
         </TabControl>
     </DockPanel>
 </Window>
