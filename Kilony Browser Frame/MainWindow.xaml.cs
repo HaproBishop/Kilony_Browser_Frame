@@ -24,7 +24,8 @@ namespace Kilony_Browser_Frame
         public MainWindow()
         {
             InitializeComponent();
-            Main.LifeSpanHandler = new Extensions.MyCustomLifeSpanHandler();
+            Main.LifeSpanHandler = new Extensions.CustomLifeSpanHandler();
+            Main.DownloadHandler = new Extensions.CustomDownloadHandler();            
         }
 
         private void Linker_Click(object sender, RoutedEventArgs e)
@@ -124,11 +125,6 @@ namespace Kilony_Browser_Frame
         private void Main_TitleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Tabs.SelectedItem != null) ((TabItem)Tabs.SelectedItem).Header = Main.Title;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

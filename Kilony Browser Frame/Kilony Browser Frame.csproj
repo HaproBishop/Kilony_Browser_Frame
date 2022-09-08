@@ -82,6 +82,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Extensions\CustomDownloadHandler.cs" />
     <Compile Include="Extensions\CustomLifeSpanHandler.cs" />
     <Compile Include="Extensions\TabCreating.cs" />
     <Compile Include="MainWindow.xaml.cs">

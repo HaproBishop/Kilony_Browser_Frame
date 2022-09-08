@@ -1,7 +1,7 @@
 ﻿using CefSharp;
 namespace Kilony_Browser_Frame.Extensions
 {
-    public class MyCustomLifeSpanHandler : ILifeSpanHandler
+    public class CustomLifeSpanHandler : ILifeSpanHandler
     {
         public bool DoClose(IWebBrowser chromiumWebBrowser, IBrowser browser)
         {
