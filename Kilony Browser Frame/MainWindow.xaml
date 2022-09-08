@@ -29,7 +29,7 @@
                 <Image Source="Pictures\RefreshOrBrowserIco.png"/>
             </Button>
             <TextBox x:Name="Link" FontSize="13" MinWidth="500" MaxWidth="600" BorderBrush="Cyan" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
-            <Button x:Name="Linker"  Click="Linker_Click" Height="22" Width="30" BorderBrush="Gray">
+            <Button x:Name="Linker"  Click="Linker_Click" Height="23" Width="30" BorderBrush="Gray">
                 <Image Source="ImgTool\FindIt.png" Width="24"/>
             </Button>
             <Button x:Name="Settings" Margin="15,0,0,0" Background="Black" Visibility="Hidden">
