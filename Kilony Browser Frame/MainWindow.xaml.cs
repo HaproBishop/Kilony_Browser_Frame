@@ -147,5 +147,18 @@ namespace Kilony_Browser_Frame
         {
             if (Main != _currentWeb) Tabs.Items.Remove(Tabs.SelectedItem);
         }
+
+        private void AboutProgram_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Разработчиком является студент группы ИСП-41 Лопаткин Сергей. \nGitHub.Name = HaproBishop", "О программе", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Программа имеет следующие особенности:\n" +
+                "1) Отсутствует возможно проигрывать некоторые видео и смотреть трансляции " +
+                "из-за отсутствия лицензированного кодека в CEF, который легко получить нельзя.\n" +
+                "", "Справка", MessageBoxButton.OK, MessageBoxImage.Question);
+        }
     }
 }

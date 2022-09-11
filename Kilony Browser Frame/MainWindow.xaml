@@ -14,8 +14,8 @@
             </MenuItem>
             <MenuItem Header="_Настройки"/>
             <MenuItem Header="_Справка">
-                <MenuItem Header="Посмотреть _справку"/>
-                <MenuItem Header="_О программе"/>
+                <MenuItem x:Name="Help" Header="Посмотреть _справку" />
+                <MenuItem x:Name="AboutProgram" Header="_О программе" Click="AboutProgram_Click"/>
             </MenuItem>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
