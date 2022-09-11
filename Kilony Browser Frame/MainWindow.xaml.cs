@@ -27,7 +27,26 @@ namespace Kilony_Browser_Frame
             InitializeComponent();
             Main.LifeSpanHandler = new Extensions.CustomLifeSpanHandler();
             Main.DownloadHandler = new Extensions.CustomDownloadHandler();
-        }        
+            timer = new DispatcherTimer();
+            timer.Tick += Timer_Tick;
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.IsEnabled = true;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Extensions.TabCreating.NewTabAddress != null)
+                {
+                    Tabs.Items.Add(Extensions.TabCreating.CreateTab(_currentWeb.Title, Extensions.TabCreating.NewTabAddress));
+                    Extensions.TabCreating.NewTabAddress = null;
+                    UpdateTabInfo();
+                }
+            }
+            catch { }
+        }
+        DispatcherTimer timer;
         ChromiumWebBrowser _currentWeb; 
         private void Linker_Click(object sender, RoutedEventArgs e)
         {
@@ -145,26 +164,22 @@ namespace Kilony_Browser_Frame
 
         private void CreateNewTab_Click(object sender, RoutedEventArgs e)
         {
-            Tabs.Items.Add(Extensions.TabCreating.CreateTab("Main", "yandex.ru"));
-            Tabs.SelectedItem = Tabs.Items[Tabs.Items.Count - 1];
-            _currentWeb.AddressChanged += Main_AddressChanged;
-            _currentWeb.TitleChanged += Main_TitleChanged;
+            Tabs.Items.Add(Extensions.TabCreating.CreateTab("Новая вкладка", "yandex.ru"));
+            UpdateTabInfo();
         }
 
         private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Tabs.SelectedItem != null) 
+            if (Tabs.SelectedItem != null)
+            {
                 _currentWeb = (ChromiumWebBrowser)((TabItem)Tabs.SelectedItem).Content;
+                Link.Text = _currentWeb.Address;
+            }
         }
 
         private void CloseCurrentTab_Click(object sender, RoutedEventArgs e)
         {
             if (Main != _currentWeb) Tabs.Items.Remove(Tabs.SelectedItem);
-        }
-
-        private void AboutProgram_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Разработчиком является студент группы ИСП-41 Лопаткин Сергей. \nGitHub.Name = HaproBishop", "О программе", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Help_Click(object sender, RoutedEventArgs e)
@@ -173,6 +188,16 @@ namespace Kilony_Browser_Frame
                 "1) Отсутствует возможно проигрывать некоторые видео и смотреть трансляции " +
                 "из-за отсутствия лицензированного кодека в CEF, который легко получить нельзя.\n" +
                 "", "Справка", MessageBoxButton.OK, MessageBoxImage.Question);
+        }
+        private void AboutProgram_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Разработчиком является студент группы ИСП-41 Лопаткин Сергей. \nGitHub.Name = HaproBishop", "О программе", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        private void UpdateTabInfo()
+        {
+            Tabs.SelectedItem = Tabs.Items[Tabs.Items.Count - 1];
+            _currentWeb.AddressChanged += Main_AddressChanged;
+            _currentWeb.TitleChanged += Main_TitleChanged;
         }
     }
 }

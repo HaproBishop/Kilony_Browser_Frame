@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:CefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
-        Title="Kilony Browser Frame" Icon="LogoIco.ico" MinHeight="450" MinWidth="870" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+        Title="Kilony Browser Frame" Icon="LogoIco.ico" MinHeight="490" MinWidth="870" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <DockPanel Background="Black">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Вкладки">
@@ -28,7 +28,7 @@
             <Button Width="30" x:Name="Refresh" Click="Refresh_Click">
                 <Image Source="Pictures\RefreshOrBrowserIco.png"/>
             </Button>
-            <TextBox x:Name="Link" FontSize="13" MinWidth="500" MaxWidth="600" BorderBrush="Black" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
+            <TextBox x:Name="Link" FontSize="13" Width="600" BorderBrush="Black" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
             <Button x:Name="Linker"  Click="Linker_Click" Height="23" Width="30" BorderBrush="Black">
                 <Image Source="ImgTool\FindIt.png" Width="24"/>
             </Button>

@@ -26,7 +26,7 @@ namespace Kilony_Browser_Frame.Extensions
                 }
             }
         }
-
+        //ИИИИИИИСПРАВИТЬ ДЛЯ ПАНЕЛИ С ЗАГРУЗКАМИ!!!!!!!
         public void OnDownloadUpdated(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IDownloadItemCallback callback)
         {
             OnDownloadUpdatedFired?.Invoke(this, downloadItem);
