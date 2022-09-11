@@ -9,7 +9,7 @@ using CefSharp.Wpf;
 namespace Kilony_Browser_Frame.Extensions
 {
     public class TabCreating
-    {
+    {        
         public static TabItem CreateTab(string tabName, string address)
         {
             var web = new ChromiumWebBrowser(address);

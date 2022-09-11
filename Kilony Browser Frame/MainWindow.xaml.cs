@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using CefSharp.Wpf;
 
 namespace Kilony_Browser_Frame
@@ -25,17 +26,17 @@ namespace Kilony_Browser_Frame
         {
             InitializeComponent();
             Main.LifeSpanHandler = new Extensions.CustomLifeSpanHandler();
-            Main.DownloadHandler = new Extensions.CustomDownloadHandler();            
-        }
+            Main.DownloadHandler = new Extensions.CustomDownloadHandler();
+        }        
         ChromiumWebBrowser _currentWeb; 
         private void Linker_Click(object sender, RoutedEventArgs e)
         {
-            _currentWeb.Address = Link.Text;
+            _currentWeb.Address = Link.Text;            
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            _currentWeb.GetBrowser().GoBack();
+            _currentWeb.GetBrowser().GoBack();            
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
@@ -120,13 +121,26 @@ namespace Kilony_Browser_Frame
 
         private void Main_AddressChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Tabs.SelectedItem != null) Link.Text = _currentWeb.Address;
+            if (Tabs.SelectedItem != null)
+            {
+                Link.Text = _currentWeb.Address;
+            }
         }
 
         private void Main_TitleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Tabs.SelectedItem != null) 
-                ((TabItem)Tabs.SelectedItem).Header = _currentWeb.Title;
+            if (Tabs.SelectedItem != null)
+            {
+                string title;
+                if (_currentWeb.Title.Count() > 15)
+                {
+                    int countNeedRemove = _currentWeb.Title.Count() - 15;
+                    title = _currentWeb.Title.Remove(_currentWeb.Title.Count() - countNeedRemove, countNeedRemove);
+                    title += "...";
+                }
+                else title = _currentWeb.Title;
+                ((TabItem)Tabs.SelectedItem).Header = title;
+            }
         }
 
         private void CreateNewTab_Click(object sender, RoutedEventArgs e)

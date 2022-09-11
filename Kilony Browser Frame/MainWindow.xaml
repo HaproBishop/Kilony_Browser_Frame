@@ -6,7 +6,7 @@
         xmlns:CefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
         Title="Kilony Browser Frame" Icon="LogoIco.ico" MinHeight="450" MinWidth="870" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
-    <DockPanel>
+    <DockPanel Background="Black">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Вкладки">
                 <MenuItem x:Name="CreateNewTab" Header="_Создать новую" Click="CreateNewTab_Click" />
@@ -14,30 +14,30 @@
             </MenuItem>
             <MenuItem Header="_Настройки"/>
             <MenuItem Header="_Справка">
-                <MenuItem x:Name="Help" Header="Посмотреть _справку" />
+                <MenuItem x:Name="Help" Header="Посмотреть _справку" Click="Help_Click"/>
                 <MenuItem x:Name="AboutProgram" Header="_О программе" Click="AboutProgram_Click"/>
             </MenuItem>
         </Menu>
-        <ToolBar DockPanel.Dock="Top">
-            <Button Width="30" Margin="0,0,10,0" x:Name="Return" Click="Return_Click">
+        <ToolBar DockPanel.Dock="Top" Background="SlateGray">
+            <Button Width="30" Margin="0,0,10,0" x:Name="Return" Click="Return_Click" IsEnabled="False">
                 <Image Source="ImgTool\Undo.ico"/>
             </Button>
-            <Button Width="30" Margin="0,0,10,0" x:Name="Next" Click="Next_Click">
+            <Button Width="30" Margin="0,0,10,0" x:Name="Next" Click="Next_Click" IsEnabled="False">
                 <Image Source="ImgTool\CancelUndo.ico"/>
             </Button>
             <Button Width="30" x:Name="Refresh" Click="Refresh_Click">
                 <Image Source="Pictures\RefreshOrBrowserIco.png"/>
             </Button>
-            <TextBox x:Name="Link" FontSize="13" MinWidth="500" MaxWidth="600" BorderBrush="Cyan" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
-            <Button x:Name="Linker"  Click="Linker_Click" Height="23" Width="30" BorderBrush="Gray">
+            <TextBox x:Name="Link" FontSize="13" MinWidth="500" MaxWidth="600" BorderBrush="Black" Text="https://yandex.ru/" GotFocus="Link_GotFocus" LostFocus="Link_LostFocus"/>
+            <Button x:Name="Linker"  Click="Linker_Click" Height="23" Width="30" BorderBrush="Black">
                 <Image Source="ImgTool\FindIt.png" Width="24"/>
             </Button>
-            <Button x:Name="Settings" Margin="15,0,0,0" Background="Black" Visibility="Hidden">
+            <Button x:Name="Settings" Margin="15,0,0,0" Background="Gray" Visibility="Hidden">
                 <Image Source="ImgTool\SettingsOnWhite.png" Height="20" Width="20"/>
             </Button>
         </ToolBar>
-        <Expander x:Name="StartMenu" Header="Start Menu" DockPanel.Dock="Top" IsExpanded="True">
-            <DockPanel HorizontalAlignment="Center">
+        <Expander x:Name="StartMenu" Header="Start Menu" DockPanel.Dock="Top" IsExpanded="True" Background="LightSlateGray" Foreground="White">
+            <DockPanel HorizontalAlignment="Center" Background="SlateGray">
                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                     <Button x:Name="Gmail" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Gmail_Click" >
                         <DockPanel>

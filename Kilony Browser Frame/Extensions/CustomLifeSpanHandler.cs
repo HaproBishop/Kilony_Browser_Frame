@@ -18,9 +18,8 @@ namespace Kilony_Browser_Frame.Extensions
 
         // Load new URL (when clicking a link with target=_blank) in the same frame
         public bool OnBeforePopup(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, string targetUrl, string targetFrameName, WindowOpenDisposition targetDisposition, bool userGesture, IPopupFeatures popupFeatures, IWindowInfo windowInfo, IBrowserSettings browserSettings, ref bool noJavascriptAccess, out IWebBrowser newBrowser)
-        {
-
-            browser.MainFrame.LoadUrl(targetUrl);//Добавление вкладок. Реализация вкладки в отдельный метод.
+        {            
+            browser.MainFrame.LoadUrl(targetUrl);
             newBrowser = null;
             return true;
         }
