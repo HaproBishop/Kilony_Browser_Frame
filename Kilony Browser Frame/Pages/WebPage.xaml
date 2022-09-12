@@ -21,20 +21,20 @@
         </Menu>
         <ToolBar DockPanel.Dock="Top" Background="SlateGray">
             <Button Width="30" Margin="0,0,10,0" x:Name="Return" ToolTip="Назад" Click="Return_Click" IsEnabled="False">
-                <Image Source="\ImgTool\Undo.ico"/>
+                <Image Source="/ImgTool/Undo.ico"/>
             </Button>
             <Button Width="30" Margin="0,0,10,0" x:Name="Next" ToolTip="Вернуться" Click="Next_Click" IsEnabled="False">
-                <Image Source="\ImgTool\CancelUndo.ico"/>
+                <Image Source="/ImgTool/CancelUndo.ico"/>
             </Button>
             <Button Width="30" x:Name="Refresh" Click="Refresh_Click" ToolTip="Обновить">
-                <Image Source="\Pictures\RefreshOrBrowserIco.png"/>
+                <Image Source="/Pictures/RefreshOrBrowserIco.png"/>
             </Button>
             <TextBox x:Name="Link" FontSize="13" Width="600" BorderBrush="Black" Text="https://yandex.ru/" GotFocus="Link_GotFocus"/>
             <Button x:Name="Linker"  Click="Linker_Click" Height="23" Width="30" BorderBrush="Black" IsDefault="True" ToolTip="Найти">
-                <Image Source="\ImgTool\FindIt.png" Width="24"/>
+                <Image Source="/ImgTool/FindIt.png" Width="24"/>
             </Button>
             <Button x:Name="CopyLink" Height="23" Width="30" BorderBrush="Black" Margin="3,0,0,0" ToolTip="Скопировать" Click="CopyLink_Click">
-                <Image Source="\ImgTool\Copy.png" Width="24"/>
+                <Image Source="/ImgTool/Copy.png" Width="24"/>
             </Button>
             <MenuItem Header="Загрузки" ToolBar.OverflowMode="Always"/>
             <MenuItem Header="История" ToolBar.OverflowMode="Always"/>
@@ -44,25 +44,25 @@
                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                     <Button x:Name="Gmail" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Gmail_Click" >
                         <DockPanel>
-                            <Image Source="\Pictures\gmail.jpg" DockPanel.Dock="Top" Height="72"/>
+                            <Image Source="/Pictures/gmail.jpg" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Gmail" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
                     <Button x:Name="Google" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Google_Click">
                         <DockPanel>
-                            <Image Source="\Pictures\GooSearch.jpg" DockPanel.Dock="Top" Height="70"/>
+                            <Image Source="/Pictures/GooSearch.jpg" DockPanel.Dock="Top" Height="70"/>
                             <TextBlock Text="Google" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
                     <Button x:Name="Youtube" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Youtube_Click">
                         <DockPanel>
-                            <Image Source="\Pictures\Youtube.png" DockPanel.Dock="Top" Height="70"/>
+                            <Image Source="/Pictures/Youtube.png" DockPanel.Dock="Top" Height="70"/>
                             <TextBlock Text="Youtube" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
                     <Button x:Name="MailRu" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="MailRu_Click">
                         <DockPanel>
-                            <Image Source="\Pictures\mail ru icon.jpg" DockPanel.Dock="Top" Height="72"/>
+                            <Image Source="/Pictures/mail ru icon.jpg" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Mail.Ru" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
@@ -70,19 +70,19 @@
                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                     <Button x:Name="YandexMail" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="YandexMail_Click">
                         <DockPanel>
-                            <Image Source="\Pictures\mail-yandex-ru-logo-2018-ogp-vertical.png" DockPanel.Dock="Top" Height="72"/>
+                            <Image Source="/Pictures/mail-yandex-ru-logo-2018-ogp-vertical.png" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Yandex Mail" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
                     <Button x:Name="Yandex" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Yandex_Click">
                         <DockPanel>
-                            <Image Source="\Pictures\YaSearch.jpg" DockPanel.Dock="Top" Height="72"/>
+                            <Image Source="/Pictures/YaSearch.jpg" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Yandex" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
                     <Button x:Name="Rutube" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Rutube_Click">
                         <DockPanel>
-                            <Image Source="\Pictures\Rutube.jpg" DockPanel.Dock="Top" Height="72"/>
+                            <Image Source="/Pictures/Rutube.jpg" DockPanel.Dock="Top" Height="72"/>
                             <TextBlock Text="Rutube" HorizontalAlignment="Center"/>
                         </DockPanel>
                     </Button>
@@ -95,7 +95,7 @@
                 </DockPanel>
                 <Button x:Name="Windows11" Width="340" Margin="50,30,50,0" Height="100" Background="White" BorderBrush="Black" Click="Windows11_Click">
                     <DockPanel>
-                        <Image Source="\Pictures\MicrosoftWin11.png" DockPanel.Dock="Top" Height="80" Width="338"/>
+                        <Image Source="/Pictures/MicrosoftWin11.png" DockPanel.Dock="Top" Height="80" Width="338"/>
                         <TextBlock Text="Windows 11" HorizontalAlignment="Center"/>
                     </DockPanel>
                 </Button>
