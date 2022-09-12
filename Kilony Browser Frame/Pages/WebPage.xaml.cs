@@ -56,10 +56,10 @@ namespace Kilony_Browser_Frame.Pages
                     StatusText.Text = "";
                     Progress.IsIndeterminate = false;
                 }
-                if (ActionTracking.IsDownload == true)
+                if (DownloadTracking.IsDownload == true)
                 {
-                    StatusText.Text = ActionTracking.FileName + ActionTracking.ActionStatus;
-                    PercentStatus.Text = ActionTracking.CurrentSpeed.ToString();
+                    StatusText.Text = DownloadTracking.FileName + ActionTracking.ActionStatus;
+                    PercentStatus.Text = DownloadTracking.CurrentSpeed.ToString();
                 }
             }
             catch { }
