@@ -8,25 +8,39 @@ namespace StatusTracking
 {
     public static class DownloadTracking
     {
-        static long _currentSpeed = 0;
-        public static long CurrentSize = 0;
-        public static long FullSize = 0;
-        public static long DownloadStatus = 0;
-        public static string FileName;
-        public static bool IsDownload = false;
-        public static long CurrentSpeed
+        static long _fullSize = -1;
+        static long _currentSize = 0;
+        public static long CurrentSize
         {
-            get => _currentSpeed; set
+            get => _currentSize; set
             {
-                if (value != 0)
-                    _currentSpeed = value;
-                else IsDownload = false;
+                if (value == _fullSize)
+                {
+                    IsDownload = false;
+                    Clear();
+                    ActionTracking.MakeStatus("Загружено");
+                }
+                else _currentSize = value;
             }
         }
+        public static long FullSize { get => _fullSize; set
+            {
+                if (value == 0)
+                {
+                    IsDownload = false;
+                    Clear();
+                    ActionTracking.MakeStatus("Отменено");
+                }
+            }
+        }
+        public static int DownloadStatus = 0;
+        public static string FileName;
+        public static bool IsDownload = false;
+        public static long CurrentSpeed = 0;                
         public static void Clear()
         {
-            CurrentSize = 0;
-            FullSize = 0;
+            CurrentSize = -1;
+            FullSize = -1;
             DownloadStatus = 0;
             FileName = "";
         }

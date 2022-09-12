@@ -24,16 +24,16 @@ namespace Kilony_Browser_Frame.Extensions
                 using (callback)
                 {
                     DownloadTracking.IsDownload = true;
-                    callback.Continue(DownloadTracking.FileName = downloadItem.SuggestedFileName, showDialog: true);//Присвоение имени для TextBlock
+                    callback.Continue(DownloadTracking.FileName = downloadItem.SuggestedFileName, showDialog: true);//Присвоение имени для TextBlock                    
                 }
-            }
+            }            
         }
         public void OnDownloadUpdated(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IDownloadItemCallback callback)
         {
             DownloadTracking.CurrentSpeed = downloadItem.CurrentSpeed / 1024;
             DownloadTracking.CurrentSize = downloadItem.ReceivedBytes / 1024;
             DownloadTracking.FullSize = downloadItem.TotalBytes / 1024;
-            DownloadTracking.DownloadStatus = DownloadTracking.CurrentSize / DownloadTracking.FullSize * 100;
+            DownloadTracking.DownloadStatus = Convert.ToInt32(Math.Round(DownloadTracking.CurrentSize / Convert.ToDouble(DownloadTracking.FullSize), 2) * 100);
             OnDownloadUpdatedFired?.Invoke(this, downloadItem);
         }
     }

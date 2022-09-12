@@ -30,13 +30,13 @@
                 <Image Source="/Pictures/RefreshOrBrowserIco.png"/>
             </Button>
             <TextBox x:Name="Link" FontSize="13" Width="600" BorderBrush="Black" Text="https://yandex.ru/" GotFocus="Link_GotFocus"/>
-            <Button x:Name="Linker"  Click="Linker_Click" Height="23" Width="30" BorderBrush="Black" IsDefault="True" ToolTip="Найти">
+            <Button x:Name="Linker"  Click="Linker_Click" Height="23" Width="30" BorderBrush="Black" ToolTip="Найти">
                 <Image Source="/ImgTool/FindIt.png" Width="24"/>
             </Button>
             <Button x:Name="CopyLink" Height="23" Width="30" BorderBrush="Black" Margin="3,0,0,0" ToolTip="Скопировать" Click="CopyLink_Click">
                 <Image Source="/ImgTool/Copy.png" Width="24"/>
             </Button>
-            <MenuItem Header="Загрузки" ToolBar.OverflowMode="Always"/>
+            <MenuItem x:Name="DownloadList" Header="Загрузки" ToolBar.OverflowMode="Always" Click="DownloadList_Click"/>
             <MenuItem Header="История" ToolBar.OverflowMode="Always"/>
         </ToolBar>
         <Expander x:Name="StartMenu" Header="Start Menu" DockPanel.Dock="Top" IsExpanded="True" Background="LightSlateGray" Foreground="White">
@@ -106,7 +106,7 @@
             <Separator/>
             <TextBlock x:Name="StatusText" Text="" Width="150" Margin="3, 0, 0, 0"/>
             <TextBlock x:Name="PercentStatus"/>
-            <TextBlock x:Name="PercentChar" Text="%" Visibility="Hidden"/>
+            <TextBlock x:Name="DownloadSpeed"/>
         </StatusBar>
         <TabControl x:Name="Tabs" SelectionChanged="Tabs_SelectionChanged" DockPanel.Dock="Top">
             <TabItem Header="Main">
