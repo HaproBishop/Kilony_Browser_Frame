@@ -104,7 +104,7 @@
         <StatusBar DockPanel.Dock="Bottom">
             <ProgressBar x:Name="Progress" Height="10" Margin="3" MinWidth="150"/>
             <Separator/>
-            <TextBlock x:Name="StatusText" Text="" Width="150" Margin="3, 0, 0, 0"/>
+            <TextBlock x:Name="StatusText" MinWidth="150" Margin="3, 0, 0, 0"/>
             <TextBlock x:Name="PercentStatus"/>
             <TextBlock x:Name="DownloadSpeed"/>
         </StatusBar>

@@ -8,21 +8,19 @@ namespace StatusTracking
 {
     public static class DownloadTracking
     {
-        static int _downloadStatus = -1;
+        static int _downloadStatus = 0;
         public static long CurrentSize = 0;
         public static long FullSize = 0;
         public static int DownloadStatus
         {
             get => _downloadStatus; set
-            {
-                if (value != 0)
-                    _downloadStatus = value;
-                else if (value > 100) _downloadStatus = 100;
-                else
+            {                
+                if (value > 100) _downloadStatus = 100;
+                else if (value < 0)
                 {
-                    IsDownload = false;
-                    Clear();
+                    _downloadStatus = 1;
                 }
+                else _downloadStatus = value;
             }
         }
         public static string FileName;
@@ -32,8 +30,8 @@ namespace StatusTracking
         {
             CurrentSize = 0;
             FullSize = 0;
-            DownloadStatus = -1;
-            FileName = "";
+            DownloadStatus = 0;
+            CurrentSpeed = 0;
         }
     }
 }

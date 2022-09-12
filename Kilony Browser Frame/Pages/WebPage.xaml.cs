@@ -49,9 +49,11 @@ namespace Kilony_Browser_Frame.Pages
                 if (DownloadTracking.IsDownload)
                 {                    
                     StatusText.Text = "Загрузка файла: " + DownloadTracking.FileName;
-                    PercentStatus.Text = (DownloadTracking.DownloadStatus).ToString() + " %";
+                    PercentStatus.Text = DownloadTracking.DownloadStatus.ToString() + " %";
                     DownloadSpeed.Text = DownloadTracking.CurrentSpeed.ToString() + " КБ/с";
                     Progress.Value = DownloadTracking.DownloadStatus;
+                    DownloadTracking.IsDownload = false;
+                    DownloadTracking.Clear();
                     return;
                 }
                 else
@@ -61,12 +63,13 @@ namespace Kilony_Browser_Frame.Pages
                     Progress.Value = 0;
                 }
                 if (ActionTracking.StatusTries != 0)
-                {                    
+                {
+                    StatusText.Text = ActionTracking.ActionStatus;
                     ActionTracking.StatusTries--;
                 }
                 else
                 {
-                    StatusText.Text = "";
+                    ActionTracking.ActionStatus = StatusText.Text = "";
                     Progress.IsIndeterminate = false;
                 }
             }
@@ -76,7 +79,6 @@ namespace Kilony_Browser_Frame.Pages
         {
             ActionTracking.MakeStatus(action);
             Progress.IsIndeterminate = true;
-            StatusText.Text = ActionTracking.ActionStatus;
         }
 
         DispatcherTimer timer;

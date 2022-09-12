@@ -22,14 +22,14 @@ namespace Kilony_Browser_Frame.Extensions
             if (!callback.IsDisposed)
             {
                 using (callback)
-                {
-                    DownloadTracking.IsDownload = true;
+                {                    
                     callback.Continue(DownloadTracking.FileName = downloadItem.SuggestedFileName, showDialog: true);//Присвоение имени для TextBlock                    
                 }
             }            
         }
         public void OnDownloadUpdated(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IDownloadItemCallback callback)
         {
+            DownloadTracking.IsDownload = true;
             DownloadTracking.CurrentSpeed = downloadItem.CurrentSpeed / 1024;
             DownloadTracking.CurrentSize = downloadItem.ReceivedBytes / 1024;
             DownloadTracking.FullSize = downloadItem.TotalBytes / 1024;
