@@ -1,5 +1,6 @@
 ﻿using System;
 using CefSharp;
+using StatusTracking;
 
 namespace Kilony_Browser_Frame.Extensions
 {
@@ -22,13 +23,17 @@ namespace Kilony_Browser_Frame.Extensions
             {
                 using (callback)
                 {
-                    callback.Continue(downloadItem.SuggestedFileName, showDialog: true);//Присвоение имени для TextBlock
+                    DownloadTracking.IsDownload = true;
+                    callback.Continue(DownloadTracking.FileName = downloadItem.SuggestedFileName, showDialog: true);//Присвоение имени для TextBlock
                 }
             }
         }
-        //ИИИИИИИСПРАВИТЬ ДЛЯ ПАНЕЛИ С ЗАГРУЗКАМИ!!!!!!!
         public void OnDownloadUpdated(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IDownloadItemCallback callback)
         {
+            DownloadTracking.CurrentSpeed = downloadItem.CurrentSpeed / 1024;
+            DownloadTracking.CurrentSize = downloadItem.ReceivedBytes / 1024;
+            DownloadTracking.FullSize = downloadItem.TotalBytes / 1024;
+            DownloadTracking.DownloadStatus = DownloadTracking.CurrentSize / DownloadTracking.FullSize * 100;
             OnDownloadUpdatedFired?.Invoke(this, downloadItem);
         }
     }

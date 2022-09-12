@@ -160,6 +160,12 @@
   <ItemGroup>
     <Resource Include="ImgTool\Copy.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StatusTracking\StatusTracking.csproj">
+      <Project>{868cdfd0-f34c-46e6-9b29-65b0de09c225}</Project>
+      <Name>StatusTracking</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

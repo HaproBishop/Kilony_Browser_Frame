@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Kilony_Browser_Frame.Extensions;
+using StatusTracking;
 
 namespace Kilony_Browser_Frame.Pages
 {
@@ -25,8 +27,8 @@ namespace Kilony_Browser_Frame.Pages
         public WebPage()
         {
             InitializeComponent();
-            Main.LifeSpanHandler = new Extensions.CustomLifeSpanHandler();
-            Main.DownloadHandler = new Extensions.CustomDownloadHandler();
+            Main.LifeSpanHandler = new CustomLifeSpanHandler();
+            Main.DownloadHandler = new CustomDownloadHandler();
             timer = new DispatcherTimer();
             timer.Tick += Timer_Tick;
             timer.Interval = new TimeSpan(0, 0, 1);
@@ -37,28 +39,32 @@ namespace Kilony_Browser_Frame.Pages
         {
             try
             {
-                if (Extensions.TabCreating.NewTabAddress != null)
+                if (TabCreating.NewTabAddress != null)
                 {
-                    Tabs.Items.Add(Extensions.TabCreating.CreateTab(_currentWeb.Title, Extensions.TabCreating.NewTabAddress));
-                    Extensions.TabCreating.NewTabAddress = null;
+                    Tabs.Items.Add(TabCreating.CreateTab(_currentWeb.Title, TabCreating.NewTabAddress));
+                    TabCreating.NewTabAddress = null;
                     UpdateTabInfo();
                 }
-                if (_statusTries != 0)
+                if (ActionTracking.StatusTries != 0)
                 {
                     Progress.IsIndeterminate = true;
-                    StatusText.Text = _actionStatus;
-                    _statusTries--;
+                    StatusText.Text = ActionTracking.ActionStatus;
+                    ActionTracking.StatusTries--;
                 }
                 else
                 {
                     StatusText.Text = "";
                     Progress.IsIndeterminate = false;
                 }
+                if (ActionTracking.IsDownload == true)
+                {
+                    StatusText.Text = ActionTracking.FileName + ActionTracking.ActionStatus;
+                    PercentStatus.Text = ActionTracking.CurrentSpeed.ToString();
+                }
             }
             catch { }
-        }
-        string _actionStatus;
-        int _statusTries = 0;
+        }                
+
         DispatcherTimer timer;
         ChromiumWebBrowser _currentWeb;
         private void Linker_Click(object sender, RoutedEventArgs e)
@@ -212,17 +218,7 @@ namespace Kilony_Browser_Frame.Pages
         {
             Link.SelectAll();
             Link.Copy();
-            MakeStatus("Скопировано");
-        }
-        private void MakeStatus(string action)
-        {
-            _actionStatus = action;
-            _statusTries = 5;
-        }
-        private void MakeStatus(string action, int tries)
-        {
-            _actionStatus = action;
-            _statusTries = tries;
+            ActionTracking.MakeStatus("Скопировано");
         }
         
         private void Settings_Click(object sender, RoutedEventArgs e)
