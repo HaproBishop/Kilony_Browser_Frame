@@ -43,11 +43,11 @@ namespace Kilony_Browser_Frame
                     Extensions.TabCreating.NewTabAddress = null;
                     UpdateTabInfo();
                 }
-                if (statusTries != 0)
+                if (_statusTries != 0)
                 {
                     Progress.IsIndeterminate = true;
                     StatusText.Text = _actionStatus;
-                    statusTries--;
+                    _statusTries--;
                 }
                 else
                 {
@@ -58,7 +58,7 @@ namespace Kilony_Browser_Frame
             catch { }
         }
         string _actionStatus;
-        int statusTries = 0;
+        int _statusTries = 0;
         DispatcherTimer timer;
         ChromiumWebBrowser _currentWeb; 
         private void Linker_Click(object sender, RoutedEventArgs e)
@@ -217,12 +217,12 @@ namespace Kilony_Browser_Frame
         private void MakeStatus(string action)
         {
             _actionStatus = action;
-            statusTries = 5;
+            _statusTries = 5;
         }
         private void MakeStatus(string action, int tries)
         {
             _actionStatus = action;
-            statusTries = tries;
+            _statusTries = tries;
         }
     }
 }
