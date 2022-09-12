@@ -47,9 +47,9 @@ namespace Kilony_Browser_Frame.Pages
                     UpdateTabInfo();
                 }
                 if (DownloadTracking.IsDownload)
-                {
+                {                    
                     StatusText.Text = "Загрузка файла: " + DownloadTracking.FileName;
-                    PercentStatus.Text = DownloadTracking.DownloadStatus.ToString() + " %";
+                    PercentStatus.Text = (DownloadTracking.DownloadStatus).ToString() + " %";
                     DownloadSpeed.Text = DownloadTracking.CurrentSpeed.ToString() + " КБ/с";
                     Progress.Value = DownloadTracking.DownloadStatus;
                     return;
@@ -191,7 +191,7 @@ namespace Kilony_Browser_Frame.Pages
 
         private void CreateNewTab_Click(object sender, RoutedEventArgs e)
         {
-            Tabs.Items.Add(Extensions.TabCreating.CreateTab("Новая вкладка", "yandex.ru"));
+            Tabs.Items.Add(TabCreating.CreateTab("Новая вкладка", "yandex.ru"));
             UpdateTabInfo();
         }
 
