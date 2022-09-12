@@ -22,7 +22,7 @@ namespace Kilony_Browser_Frame.Extensions
             {
                 using (callback)
                 {
-                    callback.Continue(downloadItem.SuggestedFileName, showDialog: true);
+                    callback.Continue(downloadItem.SuggestedFileName, showDialog: true);//Присвоение имени для TextBlock
                 }
             }
         }

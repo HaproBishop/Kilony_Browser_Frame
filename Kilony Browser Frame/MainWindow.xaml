@@ -101,7 +101,11 @@
             </DockPanel>
         </Expander>
         <StatusBar DockPanel.Dock="Bottom">
-            <TextBlock Text="35"/>
+            <ProgressBar x:Name="Progress" Height="10" Margin="3" MinWidth="150"/>
+            <Separator/>
+            <TextBlock x:Name="StatusText" Text="" Width="150" Margin="3, 0, 0, 0"/>
+            <TextBlock x:Name="PercentStatus"/>
+            <TextBlock x:Name="PercentChar" Text="%" Visibility="Hidden"/>
         </StatusBar>
         <TabControl x:Name="Tabs" SelectionChanged="Tabs_SelectionChanged" DockPanel.Dock="Top">
             <TabItem Header="Main">

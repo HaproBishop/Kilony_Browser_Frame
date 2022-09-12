@@ -43,9 +43,22 @@ namespace Kilony_Browser_Frame
                     Extensions.TabCreating.NewTabAddress = null;
                     UpdateTabInfo();
                 }
+                if (statusTries != 0)
+                {
+                    Progress.IsIndeterminate = true;
+                    StatusText.Text = _actionStatus;
+                    statusTries--;
+                }
+                else
+                {
+                    StatusText.Text = "";
+                    Progress.IsIndeterminate = false;
+                }
             }
             catch { }
         }
+        string _actionStatus;
+        int statusTries = 0;
         DispatcherTimer timer;
         ChromiumWebBrowser _currentWeb; 
         private void Linker_Click(object sender, RoutedEventArgs e)
@@ -199,6 +212,17 @@ namespace Kilony_Browser_Frame
         {
             Link.SelectAll();
             Link.Copy();
+            MakeStatus("Скопировано");
+        }
+        private void MakeStatus(string action)
+        {
+            _actionStatus = action;
+            statusTries = 5;
+        }
+        private void MakeStatus(string action, int tries)
+        {
+            _actionStatus = action;
+            statusTries = tries;
         }
     }
 }
