@@ -70,13 +70,7 @@ namespace Kilony_Browser_Frame
 
         private void Link_GotFocus(object sender, RoutedEventArgs e)
         {
-            Linker.IsDefault = true;
             Link.SelectAll();
-        }
-
-        private void Link_LostFocus(object sender, RoutedEventArgs e)
-        {
-            Linker.IsDefault = false;
         }
 
         private void Gmail_Click(object sender, RoutedEventArgs e)
@@ -180,6 +174,7 @@ namespace Kilony_Browser_Frame
         private void CloseCurrentTab_Click(object sender, RoutedEventArgs e)
         {
             if (Main != _currentWeb) Tabs.Items.Remove(Tabs.SelectedItem);
+            else MessageBox.Show("Главную вкладку нельзя закрыть!", "Главная вкладка", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         private void Help_Click(object sender, RoutedEventArgs e)
@@ -198,6 +193,12 @@ namespace Kilony_Browser_Frame
             Tabs.SelectedItem = Tabs.Items[Tabs.Items.Count - 1];
             _currentWeb.AddressChanged += Main_AddressChanged;
             _currentWeb.TitleChanged += Main_TitleChanged;
+        }
+
+        private void CopyLink_Click(object sender, RoutedEventArgs e)
+        {
+            Link.SelectAll();
+            Link.Copy();
         }
     }
 }
