@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Kilony_Browser_Frame"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style x:Key="FocusVisual">
+        <!--<Style x:Key="FocusVisual">
                 <Setter Property="Control.Template">
                     <Setter.Value>
                         <ControlTemplate>
@@ -58,6 +58,6 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-            </Style>
+            </Style>-->
     </Application.Resources>
 </Application>

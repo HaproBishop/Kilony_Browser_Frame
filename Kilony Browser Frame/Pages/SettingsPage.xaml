@@ -1,0 +1,36 @@
+﻿<Page x:Class="Kilony_Browser_Frame.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kilony_Browser_Frame.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="870"
+      Title="SettingsPage">
+    <TabControl>
+        <TabItem Header="Основные">
+            <StackPanel>
+            <GroupBox Header="Поисковой движок" Margin="20">
+                <StackPanel>
+                        <Label Content="Движок"/>
+                        <ComboBox>
+                            <ComboBoxItem Content="Яндекс" IsSelected="True"/>
+                            <ComboBoxItem Content="Google"/>
+                        </ComboBox>
+                    </StackPanel>
+            </GroupBox>
+                <GroupBox Header="Ссылка" Margin="20">
+                    <StackPanel>
+                        <Label Content="Стартовая страница" Margin="3"/>
+                        <TextBox Margin="3"/>
+                    </StackPanel>
+                </GroupBox>
+                <DockPanel LastChildFill="False" Margin="20,0,20,0">
+                    <Button x:Name="BackToWeb" Width="100" Content="Отмена" Margin="3" Click="BackToWeb_Click"/>
+                    <Button Width="100" Content="Сохранить" Margin="3"/>
+                    <TextBox x:Name="AddressMain" Width="100"/>
+                </DockPanel>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Page>

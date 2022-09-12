@@ -12,23 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
-using CefSharp.Wpf;
 
-namespace Kilony_Browser_Frame
+namespace Kilony_Browser_Frame.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SettingsPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SettingsPage : Page
     {
-        public MainWindow()
+        public SettingsPage()
         {
-            InitializeComponent();            
-            MainPageWindow = this;
-            Content = MainPage = new Pages.WebPage();
+            InitializeComponent();
         }
-        public static MainWindow MainPageWindow;
-        public static Page MainPage;
+
+        private void BackToWeb_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.MainPageWindow.Content = MainWindow.MainPage;
+        }
     }
 }
