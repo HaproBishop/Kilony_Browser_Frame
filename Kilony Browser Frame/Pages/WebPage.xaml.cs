@@ -30,6 +30,7 @@ namespace Kilony_Browser_Frame.Pages
             InitializeComponent();
             Main.LifeSpanHandler = new CustomLifeSpanHandler();
             Main.DownloadHandler = new CustomDownloadHandler();
+            History = new List<HistoryCreating>();
             timer = new DispatcherTimer();
             timer.Tick += Timer_Tick;
             timer.Interval = new TimeSpan(0, 0, 1);
@@ -83,6 +84,7 @@ namespace Kilony_Browser_Frame.Pages
 
         DispatcherTimer timer;
         ChromiumWebBrowser _currentWeb;
+        public static List<HistoryCreating> History;
         private void Linker_Click(object sender, RoutedEventArgs e)
         {
             _currentWeb.Address = Link.Text;
@@ -171,10 +173,9 @@ namespace Kilony_Browser_Frame.Pages
         {
             if (Tabs.SelectedItem != null)
             {
-                Link.Text = _currentWeb.Address;
+                Link.Text = _currentWeb.Address;            
             }
-        }
-
+        }        
         private void Main_TitleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Tabs.SelectedItem != null)
@@ -188,6 +189,16 @@ namespace Kilony_Browser_Frame.Pages
                 }
                 else title = _currentWeb.Title;
                 ((TabItem)Tabs.SelectedItem).Header = title;
+                try
+                {
+                    History[History.Count - 1].AddNewSite(title, _currentWeb.Address);
+                }
+                catch
+                {
+                    History.Add(new HistoryCreating());
+                    MainWindow.Settings.AddNewDay();
+                    History[History.Count - 1].AddNewSite(title, _currentWeb.Address);
+                }              
             }
         }
 
@@ -240,7 +251,7 @@ namespace Kilony_Browser_Frame.Pages
         
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.MainPageWindow.Content = new SettingsPage();
+            MainWindow.MainPageWindow.Content = MainWindow.Settings;
         }
 
         private void DownloadList_Click(object sender, RoutedEventArgs e)

@@ -29,5 +29,13 @@ namespace Kilony_Browser_Frame.Pages
         {
             MainWindow.MainPageWindow.Content = MainWindow.MainPage;
         }
+        public void AddNewDay()
+        {
+            HistoryList.Children.Add(new ListViewItem
+            {
+                Content = WebPage.History[WebPage.History.Count - 1].CreateFormDayHistory() 
+            }
+            );
+        }
     }
 }

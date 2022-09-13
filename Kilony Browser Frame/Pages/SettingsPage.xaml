@@ -33,6 +33,9 @@
                 </GroupBox>
             </StackPanel>
         </TabItem>
+            <TabItem Header="История">
+                <StackPanel x:Name="HistoryList"/>
+            </TabItem>
     </TabControl>
     </DockPanel>
 </Page>
