@@ -14,7 +14,7 @@
             <MenuItem x:Name="BackToWeb" Header="_Отмена" Click="BackToWeb_Click"/>
         </Menu>
         <TabControl TabStripPlacement="Left">
-        <TabItem Header="Основные">
+            <TabItem Header="Основные" Height="30">
             <StackPanel>
             <GroupBox Header="Поисковой движок" Margin="20">
                 <StackPanel>
@@ -33,7 +33,7 @@
                 </GroupBox>
             </StackPanel>
         </TabItem>
-            <TabItem Header="История">
+            <TabItem Header="История" Height="30">
                 <StackPanel x:Name="HistoryList"/>
             </TabItem>
     </TabControl>
