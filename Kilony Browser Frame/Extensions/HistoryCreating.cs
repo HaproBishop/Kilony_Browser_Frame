@@ -11,19 +11,7 @@ namespace Kilony_Browser_Frame.Extensions
 /// Позволяет создать историю дня (экземплярами можно реализовать несколько дней)
 /// </summary>
     public class HistoryCreating
-    {        
-        struct NewRow
-        {
-            public string Title { get; set; }
-            public string Link { get; set; }
-            public string Time { get; set; }
-            public NewRow(string title, string link)
-            {
-                Title = title;
-                Link = link;
-                Time = (DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes).ToString();
-            }
-        }
+    {                
         DateTime _dateTime;
         public Expander DayExpander;
         public DateTime Date { get => _dateTime.Date; set => _dateTime = value; }//Задается один раз
@@ -71,6 +59,18 @@ namespace Kilony_Browser_Frame.Extensions
                 IsExpanded = false
             };
             return DayExpander = expander;
+        }
+    }
+    public struct NewRow
+    {
+        public string Title { get; set; }
+        public string Link { get; set; }
+        public string Time { get; set; }
+        public NewRow(string title, string link)
+        {
+            Title = title;
+            Link = link;
+            Time = (DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes).ToString();
         }
     }
 }
