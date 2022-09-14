@@ -29,7 +29,7 @@
             <Button Width="30" x:Name="Refresh" Click="Refresh_Click" ToolTip="Обновить">
                 <Image Source="/Pictures/RefreshOrBrowserIco.png"/>
             </Button>
-            <TextBox x:Name="Link" FontSize="13" Width="600" BorderBrush="Black" Text="https://yandex.ru/" GotFocus="Link_GotFocus"/>
+            <TextBox x:Name="Link" FontSize="13" Width="600" BorderBrush="Black" Text="https://yandex.ru/" GotFocus="Link_GotFocus" KeyDown="Link_KeyDown"/>
             <Button x:Name="Linker"  Click="Linker_Click" Height="23" Width="30" BorderBrush="Black" ToolTip="Найти">
                 <Image Source="/ImgTool/FindIt.png" Width="24"/>
             </Button>

@@ -108,21 +108,25 @@ namespace Kilony_Browser_Frame.Pages
         private void Linker_Click(object sender, RoutedEventArgs e)
         {
             _currentWeb.Address = Link.Text;
+            Tabs.IsEnabled = CreateNewTab.IsEnabled = false;
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
             _currentWeb.GetBrowser().GoBack();
+            Tabs.IsEnabled = CreateNewTab.IsEnabled = false;
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
             _currentWeb.GetBrowser().GoForward();
+            Tabs.IsEnabled = CreateNewTab.IsEnabled = false;
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
             _currentWeb.GetBrowser().Reload();
+            Tabs.IsEnabled = CreateNewTab.IsEnabled = false;
         }
 
         private void Link_GotFocus(object sender, RoutedEventArgs e)
@@ -287,6 +291,11 @@ namespace Kilony_Browser_Frame.Pages
         {
             MainWindow.MainPageWindow.Content = MainWindow.Settings;
             MainWindow.Settings.History.IsSelected = true;
+        }
+
+        private void Link_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) Linker_Click(sender, e);
         }
     }
 }
