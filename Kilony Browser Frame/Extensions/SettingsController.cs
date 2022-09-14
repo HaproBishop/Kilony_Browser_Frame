@@ -30,8 +30,8 @@ namespace Kilony_Browser_Frame.Extensions
                 {
                     try
                     {
-                        writer.WriteLine(((Expander)stackPanel.Children[i]).Header);
-                        ListView currentHistoryList = (ListView)((Expander)stackPanel.Children[i]).Content;
+                        writer.WriteLine(((Expander)((ListViewItem)stackPanel.Children[i]).Content).Header);
+                        ListView currentHistoryList = (ListView)((Expander)((ListViewItem)stackPanel.Children[i]).Content).Content;
                         for (int j = 0; j < currentHistoryList.Items.Count; j++)
                         {
                             NewRow row = (NewRow)currentHistoryList.Items[j];

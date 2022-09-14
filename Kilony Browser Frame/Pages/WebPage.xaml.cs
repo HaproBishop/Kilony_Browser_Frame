@@ -218,7 +218,7 @@ namespace Kilony_Browser_Frame.Pages
                 {
                     History.Add(new HistoryCreating());
                     MainWindow.Settings.AddNewDay();
-                    History[History.Count - 1].AddNewSite(title, _currentWeb.Address);
+                    History[History.Count - 1].AddNewSite(_currentWeb.Title, _currentWeb.Address);
                 }
             }            
         }

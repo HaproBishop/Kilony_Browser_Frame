@@ -39,7 +39,7 @@
             <MenuItem x:Name="DownloadList" Header="Загрузки" ToolBar.OverflowMode="Always" Click="DownloadList_Click"/>
             <MenuItem x:Name="ShowHistoryLish" Header="История" ToolBar.OverflowMode="Always" Click="ShowHistoryLish_Click"/>
         </ToolBar>
-        <Expander x:Name="StartMenu" Header="Start Menu" DockPanel.Dock="Top" IsExpanded="True" Background="LightSlateGray" Foreground="White">
+        <Expander x:Name="StartMenu" Header="Стартовое меню" DockPanel.Dock="Top" IsExpanded="True" Background="LightSlateGray" Foreground="White">
             <DockPanel HorizontalAlignment="Center" Background="SlateGray">
                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
                     <Button x:Name="Gmail" Width="100" Margin="50,10,50,0" Height="100" Background="White" BorderBrush="Black" Click="Gmail_Click" >
