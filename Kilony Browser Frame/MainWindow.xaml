@@ -5,5 +5,5 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:CefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         mc:Ignorable="d"
-        Title="Kilony Browser Frame" Icon="LogoIco.ico" MinHeight="500" MinWidth="870" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+        Title="Kilony Browser Frame" Icon="LogoIco.ico" MinHeight="500" MinWidth="870" WindowStartupLocation="CenterScreen">
 </Window>

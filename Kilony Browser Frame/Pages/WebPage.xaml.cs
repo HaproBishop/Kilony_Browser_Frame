@@ -30,6 +30,10 @@ namespace Kilony_Browser_Frame.Pages
             InitializeComponent();
             Main.LifeSpanHandler = new CustomLifeSpanHandler();
             Main.DownloadHandler = new CustomDownloadHandler();
+            SettingsData = new SettingsController();
+            SettingsData.LoadMainSettings();            
+            Main.Address = SettingsData.StartLink;
+            MainWindow.Settings.SetLoadedSettings();
             History = new List<HistoryCreating>();
             timer = new DispatcherTimer();
             timer.Tick += Timer_Tick;
@@ -39,6 +43,12 @@ namespace Kilony_Browser_Frame.Pages
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            if (_currentWeb != null)
+            {
+                if (_currentWeb.IsLoading) Tabs.IsEnabled = CreateNewTab.IsEnabled = false;
+                else Tabs.IsEnabled = CreateNewTab.IsEnabled = true;
+            }            
+            UpdateCans();
             try
             {
                 if (TabCreating.NewTabAddress != null)
@@ -76,12 +86,22 @@ namespace Kilony_Browser_Frame.Pages
             }
             catch { }
         }
+        private void UpdateCans()
+        {
+            if (_currentWeb != null)
+            {
+                if (_currentWeb.CanGoBack) Return.IsEnabled = true;
+                else Return.IsEnabled = false;
+                if (_currentWeb.CanGoForward) Next.IsEnabled = true;
+                else Next.IsEnabled = false;
+            }
+        }
         private void ActionTrigger(string action)
         {
             ActionTracking.MakeStatus(action);
             Progress.IsIndeterminate = true;
         }
-
+        public static SettingsController SettingsData;
         DispatcherTimer timer;
         ChromiumWebBrowser _currentWeb;
         public static List<HistoryCreating> History;
@@ -173,7 +193,8 @@ namespace Kilony_Browser_Frame.Pages
         {
             if (Tabs.SelectedItem != null)
             {
-                Link.Text = _currentWeb.Address;            
+                Tabs.IsEnabled = CreateNewTab.IsEnabled = false;
+                Link.Text = _currentWeb.Address;
             }
         }        
         private void Main_TitleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -198,22 +219,25 @@ namespace Kilony_Browser_Frame.Pages
                     History.Add(new HistoryCreating());
                     MainWindow.Settings.AddNewDay();
                     History[History.Count - 1].AddNewSite(title, _currentWeb.Address);
-                }              
-            }
+                }
+            }            
         }
-
         private void CreateNewTab_Click(object sender, RoutedEventArgs e)
         {
-            Tabs.Items.Add(TabCreating.CreateTab("Новая вкладка", "yandex.ru"));
+            if (SettingsData.Engine == 0)
+                Tabs.Items.Add(TabCreating.CreateTab("Новая вкладка", "yandex.ru"));
+            else Tabs.Items.Add(TabCreating.CreateTab("Новая вкладка", "google.com"));
             UpdateTabInfo();
+            Tabs.IsEnabled = CreateNewTab.IsEnabled = false;
         }
 
         private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (Tabs.SelectedItem != null)
-            {
+            {                
                 _currentWeb = (ChromiumWebBrowser)((TabItem)Tabs.SelectedItem).Content;
-                Link.Text = _currentWeb.Address;
+                UpdateCans();
+                Link.Text = _currentWeb.Address;                
             }
         }
 
@@ -257,6 +281,12 @@ namespace Kilony_Browser_Frame.Pages
         private void DownloadList_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("explorer.exe", @"C:\Users\" + Environment.UserName + @"\Downloads\");
+        }
+
+        private void ShowHistoryLish_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.MainPageWindow.Content = MainWindow.Settings;
+            MainWindow.Settings.History.IsSelected = true;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,23 +10,69 @@ using System.Windows.Controls;
 namespace Kilony_Browser_Frame.Extensions
 {
     public class SettingsController
-    {
-        public void SaveHistory(StackPanel stackPanel)
+    {       
+        public int Engine;    
+        public string StartLink;
+        public static void SaveHistory(StackPanel stackPanel)
         {
-            StreamWriter writer = new StreamWriter("KilonyHistory.txt");                
-            for (int i = 0; i < stackPanel.Children.Count; i++)
+            string writtingName = DateTime.Now.ToString().Replace(".", "_").Replace(":","-");
+            SaveFileDialog save = new SaveFileDialog
             {
-                writer.WriteLine(((Expander)stackPanel.Children[i]).Header);
-                ListView currentHistoryList = (ListView)((Expander)stackPanel.Children[i]).Content;
-                for (int j = 0; j < currentHistoryList.Items.Count; j++)
+                Title = "Сохранение текущей истории",
+                DefaultExt = "txt",
+                Filter = "Текстовый файл(*.txt) | *.txt | Все файлы(*.*) | *.* ",
+                FileName = writtingName
+            };
+            if (save.ShowDialog() == true)
+            {
+                StreamWriter writer = new StreamWriter(save.FileName);
+                for (int i = 0; i < stackPanel.Children.Count; i++)
                 {
-                    NewRow row = (NewRow)currentHistoryList.Items[j];
-                    writer.WriteLine(row.Title);
-                    writer.WriteLine(row.Link);
-                    writer.WriteLine(row.Time);
+                    try
+                    {
+                        writer.WriteLine(((Expander)stackPanel.Children[i]).Header);
+                        ListView currentHistoryList = (ListView)((Expander)stackPanel.Children[i]).Content;
+                        for (int j = 0; j < currentHistoryList.Items.Count; j++)
+                        {
+                            NewRow row = (NewRow)currentHistoryList.Items[j];
+                            writer.Write(row.Title + " | ");
+                            writer.Write(row.Link + " | ");
+                            writer.WriteLine(row.Time);
+                        }
+                    }
+                    catch { }
                 }
+                writer.Close();
             }
+        }
+        public void SaveMainSettings()
+        {
+            StreamWriter writer = new StreamWriter("KilonySettings.txt");
+            writer.WriteLine(Engine);
+            writer.WriteLine(StartLink);
             writer.Close();
+        }
+        public void SaveMainSettings(int engine, string startLink)
+        {
+            StreamWriter writer = new StreamWriter("KilonySettings.txt");
+            writer.WriteLine(Engine = engine);
+            writer.WriteLine(StartLink = startLink);
+            writer.Close();
+        }
+        public void LoadMainSettings()
+        {
+            try
+            {
+                StreamReader writer = new StreamReader("KilonySettings.txt");
+                Engine = Convert.ToInt32(writer.ReadLine());
+                StartLink = writer.ReadLine();
+                writer.Close();
+            }
+            catch 
+            {
+                Engine = 0;
+                StartLink = "https://yandex.ru";
+            }
         }
     }
 }

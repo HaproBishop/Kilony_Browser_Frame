@@ -26,8 +26,8 @@ namespace Kilony_Browser_Frame
         {
             InitializeComponent();            
             MainPageWindow = this;
-            Content = MainPage = new Pages.WebPage();
             Settings = new Pages.SettingsPage();
+            Content = MainPage = new Pages.WebPage();
         }
         public static MainWindow MainPageWindow;
         public static Pages.SettingsPage Settings;

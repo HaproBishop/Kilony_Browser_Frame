@@ -10,7 +10,7 @@
     <DockPanel Background="Black">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Вкладки">
-                <MenuItem x:Name="CreateNewTab" Header="_Создать новую" Click="CreateNewTab_Click" />
+                <MenuItem x:Name="CreateNewTab" Header="_Создать новую" Click="CreateNewTab_Click" IsEnabled="False"/>
                 <MenuItem x:Name="CloseCurrentTab" Header="_Закрыть текущую" Click="CloseCurrentTab_Click"/>
             </MenuItem>
             <MenuItem x:Name="Settings" Header="_Настройки" Click="Settings_Click"/>
@@ -37,7 +37,7 @@
                 <Image Source="/ImgTool/Copy.png" Width="24"/>
             </Button>
             <MenuItem x:Name="DownloadList" Header="Загрузки" ToolBar.OverflowMode="Always" Click="DownloadList_Click"/>
-            <MenuItem Header="История" ToolBar.OverflowMode="Always"/>
+            <MenuItem x:Name="ShowHistoryLish" Header="История" ToolBar.OverflowMode="Always" Click="ShowHistoryLish_Click"/>
         </ToolBar>
         <Expander x:Name="StartMenu" Header="Start Menu" DockPanel.Dock="Top" IsExpanded="True" Background="LightSlateGray" Foreground="White">
             <DockPanel HorizontalAlignment="Center" Background="SlateGray">
@@ -110,7 +110,7 @@
         </StatusBar>
         <TabControl x:Name="Tabs" SelectionChanged="Tabs_SelectionChanged" DockPanel.Dock="Top">
             <TabItem Header="Main">
-                <local:ChromiumWebBrowser x:Name="Main" Address="https://yandex.ru" AddressChanged="Main_AddressChanged" TitleChanged="Main_TitleChanged"/>
+                <local:ChromiumWebBrowser x:Name="Main" AddressChanged="Main_AddressChanged" TitleChanged="Main_TitleChanged"/>
             </TabItem>
         </TabControl>
     </DockPanel>

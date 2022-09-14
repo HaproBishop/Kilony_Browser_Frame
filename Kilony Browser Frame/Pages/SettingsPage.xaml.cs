@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kilony_Browser_Frame.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,8 @@ namespace Kilony_Browser_Frame.Pages
 
         private void BackToWeb_Click(object sender, RoutedEventArgs e)
         {
+            EngineSwitcher.SelectedIndex = WebPage.SettingsData.Engine;
+            StartLink.Text = WebPage.SettingsData.StartLink;
             MainWindow.MainPageWindow.Content = MainWindow.MainPage;
         }
         public void AddNewDay()
@@ -36,6 +39,24 @@ namespace Kilony_Browser_Frame.Pages
                 Content = WebPage.History[WebPage.History.Count - 1].CreateFormDayHistory() 
             }
             );
+        }
+
+        private void SaveHistory_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsController.SaveHistory(HistoryList);
+        }
+        public void SetLoadedSettings()
+        {
+            EngineSwitcher.SelectedIndex = WebPage.SettingsData.Engine;
+            StartLink.Text = WebPage.SettingsData.StartLink;
+        }
+
+        private void SaveAndClose_Click(object sender, RoutedEventArgs e)
+        {
+            WebPage.SettingsData.Engine = EngineSwitcher.SelectedIndex;
+            WebPage.SettingsData.StartLink = StartLink.Text;
+            WebPage.SettingsData.SaveMainSettings();
+            MainWindow.MainPageWindow.Content = MainWindow.MainPage;
         }
     }
 }

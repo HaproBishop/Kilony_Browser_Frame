@@ -61,6 +61,9 @@ namespace Kilony_Browser_Frame.Extensions
             return DayExpander = expander;
         }
     }
+    /// <summary>
+    /// Структура для основы элемента представления данных в ListView как запись
+    /// </summary>
     public struct NewRow
     {
         public string Title { get; set; }

@@ -9,31 +9,31 @@
       Title="SettingsPage">
     <DockPanel>
         <Menu DockPanel.Dock="Bottom" FontSize="18">
-            <MenuItem Header="OK" Width="71"/>
-            <MenuItem Header="_Сохранить"/>
+            <MenuItem x:Name="SaveAndClose" Header="_OK" Width="71" Click="SaveAndClose_Click" />
+            <MenuItem x:Name="SaveHistory" Header="_Сохранить историю" Click="SaveHistory_Click"/>
             <MenuItem x:Name="BackToWeb" Header="_Отмена" Click="BackToWeb_Click"/>
         </Menu>
         <TabControl TabStripPlacement="Left">
             <TabItem Header="Основные" Height="30">
             <StackPanel>
-            <GroupBox Header="Поисковой движок" Margin="20">
+            <GroupBox Header="Поиск" Margin="20" ToolTip="Выбирает поисковик при создании новой вкладки">
                 <StackPanel>
                         <Label Content="Движок"/>
-                        <ComboBox>
-                            <ComboBoxItem Content="Яндекс" IsSelected="True"/>
-                            <ComboBoxItem Content="Google"/>
+                        <ComboBox x:Name="EngineSwitcher">
+                            <ComboBoxItem x:Name="YandexEngine" Content="Яндекс" IsSelected="True"/>
+                            <ComboBoxItem x:Name="GoogleEngine" Content="Google"/>
                         </ComboBox>
                     </StackPanel>
             </GroupBox>
-                <GroupBox Header="Ссылка" Margin="20">
+                <GroupBox Header="Ссылка" Margin="20" ToolTip="Страница, которая должна появляться при старте браузера">
                     <StackPanel>
                         <Label Content="Стартовая страница" Margin="3"/>
-                        <TextBox Margin="3"/>
+                        <TextBox x:Name="StartLink" Margin="3"/>
                     </StackPanel>
                 </GroupBox>
             </StackPanel>
         </TabItem>
-            <TabItem Header="История" Height="30">
+            <TabItem x:Name="History" Header="История" Height="30">
                 <StackPanel x:Name="HistoryList"/>
             </TabItem>
     </TabControl>
