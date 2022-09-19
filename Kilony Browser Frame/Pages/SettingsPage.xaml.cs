@@ -41,7 +41,7 @@ namespace Kilony_Browser_Frame.Pages
             );
         }
 
-        private void SaveHistory_Click(object sender, RoutedEventArgs e)
+        public void SaveHistory_Click(object sender, RoutedEventArgs e)
         {
             SettingsController.SaveHistory(HistoryList);
         }

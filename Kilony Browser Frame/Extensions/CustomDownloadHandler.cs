@@ -29,7 +29,7 @@ namespace Kilony_Browser_Frame.Extensions
         }
         public void OnDownloadUpdated(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IDownloadItemCallback callback)
         {
-            DownloadTracking.IsDownload = true;
+            DownloadTracking.IsDownload = true;//Статус загрузки включен
             DownloadTracking.CurrentSpeed = downloadItem.CurrentSpeed / 1024;
             DownloadTracking.CurrentSize = downloadItem.ReceivedBytes / 1024;
             DownloadTracking.FullSize = downloadItem.TotalBytes / 1024;

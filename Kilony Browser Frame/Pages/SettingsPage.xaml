@@ -34,7 +34,9 @@
             </StackPanel>
         </TabItem>
             <TabItem x:Name="History" Header="История" Height="30">
-                <StackPanel x:Name="HistoryList"/>
+                <ScrollViewer>
+                       <StackPanel x:Name="HistoryList"/>
+                </ScrollViewer>
             </TabItem>
     </TabControl>
     </DockPanel>
