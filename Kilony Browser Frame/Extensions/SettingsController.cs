@@ -63,9 +63,9 @@ namespace Kilony_Browser_Frame.Extensions
         {
             try
             {
-                StreamReader writer = new StreamReader("KilonySettings.txt");
-                Engine = Convert.ToInt32(writer.ReadLine());
-                StartLink = writer.ReadLine();
+                StreamReader reader = new StreamReader("KilonySettings.txt");
+                Engine = Convert.ToInt32(reader.ReadLine());
+                StartLink = reader.ReadLine();
                 writer.Close();
             }
             catch 
