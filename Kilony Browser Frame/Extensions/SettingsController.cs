@@ -1,21 +1,17 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace Kilony_Browser_Frame.Extensions
 {
     public class SettingsController
-    {       
-        public int Engine;    
+    {
+        public int Engine;
         public string StartLink;
         public static void SaveHistory(StackPanel stackPanel)
         {
-            string writtingName = DateTime.Now.ToString().Replace(".", "_").Replace(":","-");
+            string writtingName = DateTime.Now.ToString().Replace(".", "_").Replace(":", "-");
             SaveFileDialog save = new SaveFileDialog
             {
                 Title = "Сохранение текущей истории",
@@ -68,7 +64,7 @@ namespace Kilony_Browser_Frame.Extensions
                 StartLink = reader.ReadLine();
                 reader.Close();
             }
-            catch 
+            catch
             {
                 Engine = 0;
                 StartLink = "https://yandex.ru";

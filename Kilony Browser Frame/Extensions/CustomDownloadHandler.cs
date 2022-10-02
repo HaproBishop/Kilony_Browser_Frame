@@ -1,10 +1,10 @@
-﻿using System;
-using CefSharp;
+﻿using CefSharp;
 using StatusTracking;
+using System;
 
 namespace Kilony_Browser_Frame.Extensions
 {
-    public class CustomDownloadHandler:IDownloadHandler
+    public class CustomDownloadHandler : IDownloadHandler
     {
         public event EventHandler<DownloadItem> OnBeforeDownloadFired;
 
@@ -22,10 +22,10 @@ namespace Kilony_Browser_Frame.Extensions
             if (!callback.IsDisposed)
             {
                 using (callback)
-                {                    
+                {
                     callback.Continue(DownloadTracking.FileName = downloadItem.SuggestedFileName, showDialog: true);//Присвоение имени для TextBlock                    
                 }
-            }            
+            }
         }
         public void OnDownloadUpdated(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem, IDownloadItemCallback callback)
         {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
 
@@ -11,18 +7,18 @@ namespace Kilony_Browser_Frame.Extensions
 /// Позволяет создать историю дня (экземплярами можно реализовать несколько дней)
 /// </summary>
     public class HistoryCreating
-    {                
+    {
         DateTime _dateTime;
         public Expander DayExpander;
         public DateTime Date { get => _dateTime.Date; set => _dateTime = value; }//Задается один раз
         public HistoryCreating()
         {
             _dateTime = DateTime.Now;
-        }        
+        }
         public void AddNewSite(string title, string link)
         {
             if (DateTime.Now.Date != Date) throw new Exception("Наступил следующий день, невозможно добавить сайт в список");
-            ((ListView)DayExpander.Content).Items.Add(new NewRow(title, link));           
+            ((ListView)DayExpander.Content).Items.Add(new NewRow(title, link));
         }
         public Expander CreateFormDayHistory()
         {
@@ -40,7 +36,7 @@ namespace Kilony_Browser_Frame.Extensions
                 Width = 395,
                 DisplayMemberBinding = new Binding(path: "Link")
             }
-            ) ;
+            );
             table.Columns.Add(new GridViewColumn
             {
                 Header = "Время",

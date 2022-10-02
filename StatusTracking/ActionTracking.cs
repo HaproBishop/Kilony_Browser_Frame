@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StatusTracking
+﻿namespace StatusTracking
 {
     public static class ActionTracking
     {
         public static string ActionStatus;
-        public static int StatusTries = 0;               
+        public static int StatusTries = 0;
         public static void MakeStatus(string action)
         {
             ActionStatus = action;
@@ -21,7 +15,7 @@ namespace StatusTracking
             StatusTries = tries;
         }
         public static void Clear()
-        {            
+        {
             ActionStatus = "";
         }
     }

@@ -1,22 +1,14 @@
 ﻿using CefSharp.Wpf;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 using Kilony_Browser_Frame.Extensions;
 using StatusTracking;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Kilony_Browser_Frame.Pages
 {
@@ -31,7 +23,7 @@ namespace Kilony_Browser_Frame.Pages
             Main.LifeSpanHandler = new CustomLifeSpanHandler();
             Main.DownloadHandler = new CustomDownloadHandler();
             SettingsData = new SettingsController();
-            SettingsData.LoadMainSettings();            
+            SettingsData.LoadMainSettings();
             Main.Address = SettingsData.StartLink;
             MainWindow.Settings.SetLoadedSettings();
             History = new List<HistoryCreating>();
@@ -47,7 +39,7 @@ namespace Kilony_Browser_Frame.Pages
             {
                 if (_currentWeb.IsLoading) Tabs.IsEnabled = CreateNewTab.IsEnabled = false;
                 else Tabs.IsEnabled = CreateNewTab.IsEnabled = true;
-            }            
+            }
             UpdateCans();
             try
             {
@@ -58,7 +50,7 @@ namespace Kilony_Browser_Frame.Pages
                     UpdateTabInfo();
                 }
                 if (DownloadTracking.IsDownload)
-                {                    
+                {
                     StatusText.Text = "Загрузка файла: " + DownloadTracking.FileName;
                     PercentStatus.Text = DownloadTracking.DownloadStatus.ToString() + " %";
                     DownloadSpeed.Text = DownloadTracking.CurrentSpeed.ToString() + " КБ/с";
@@ -200,7 +192,7 @@ namespace Kilony_Browser_Frame.Pages
                 Tabs.IsEnabled = CreateNewTab.IsEnabled = false;
                 Link.Text = _currentWeb.Address;
             }
-        }        
+        }
         private void Main_TitleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Tabs.SelectedItem != null)
@@ -224,7 +216,7 @@ namespace Kilony_Browser_Frame.Pages
                     MainWindow.Settings.AddNewDay();
                     History[History.Count - 1].AddNewSite(_currentWeb.Title, _currentWeb.Address);
                 }
-            }            
+            }
         }
         private void CreateNewTab_Click(object sender, RoutedEventArgs e)
         {
@@ -238,10 +230,10 @@ namespace Kilony_Browser_Frame.Pages
         private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (Tabs.SelectedItem != null)
-            {                
+            {
                 _currentWeb = (ChromiumWebBrowser)((TabItem)Tabs.SelectedItem).Content;
                 UpdateCans();
-                Link.Text = _currentWeb.Address;                
+                Link.Text = _currentWeb.Address;
             }
         }
 
@@ -274,9 +266,9 @@ namespace Kilony_Browser_Frame.Pages
             Link.SelectAll();
             Link.Copy();
             ActionTrigger("Скопировано");
-            
+
         }
-        
+
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.MainPageWindow.Content = MainWindow.Settings;

@@ -1,18 +1,6 @@
 ﻿using Kilony_Browser_Frame.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Kilony_Browser_Frame.Pages
 {
@@ -36,7 +24,7 @@ namespace Kilony_Browser_Frame.Pages
         {
             HistoryList.Children.Add(new ListViewItem
             {
-                Content = WebPage.History[WebPage.History.Count - 1].CreateFormDayHistory() 
+                Content = WebPage.History[WebPage.History.Count - 1].CreateFormDayHistory()
             }
             );
         }

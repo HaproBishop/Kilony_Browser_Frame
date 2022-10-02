@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StatusTracking
+﻿namespace StatusTracking
 {
     public static class DownloadTracking
     {
@@ -14,7 +8,7 @@ namespace StatusTracking
         public static int DownloadStatus
         {
             get => _downloadStatus; set
-            {                
+            {
                 if (value > 100) _downloadStatus = 100;
                 else if (value < 0)
                 {
@@ -25,7 +19,7 @@ namespace StatusTracking
         }
         public static string FileName;
         public static bool IsDownload = false;
-        public static long CurrentSpeed { get; set; }       
+        public static long CurrentSpeed { get; set; }
         public static void Clear()
         {
             CurrentSize = 0;

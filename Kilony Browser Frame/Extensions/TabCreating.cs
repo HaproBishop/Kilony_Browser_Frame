@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CefSharp.Wpf;
 using System.Windows.Controls;
-using CefSharp.Wpf;
 
 namespace Kilony_Browser_Frame.Extensions
 {
@@ -19,7 +14,7 @@ namespace Kilony_Browser_Frame.Extensions
             TabItem newTab = new TabItem
             {
                 Header = tabName,
-                Content =  web
+                Content = web
             };
             return newTab;
         }
