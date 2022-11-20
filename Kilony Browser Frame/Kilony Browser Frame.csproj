@@ -145,19 +145,16 @@
     <Resource Include="Pictures\Youtube.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ImgTool\AboutProgram.ico" />
     <Resource Include="ImgTool\CancelUndo.ico" />
-    <Resource Include="ImgTool\Exit.ico" />
     <Resource Include="ImgTool\FindIt.png" />
     <Resource Include="ImgTool\LogoIco.ico" />
-    <Resource Include="ImgTool\Support.ico" />
     <Resource Include="ImgTool\Undo.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="LogoIco.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pictures\RefreshOrBrowserIco.png" />
+    <Resource Include="ImgTool\RefreshOrBrowserIco.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ImgTool\Copy.png" />
